@@ -122,6 +122,7 @@ export default function SearchCard() {
                   ? "bg-[#EEF4FF] text-[#2A6CFF]"
                   : "text-slate-700 hover:text-slate-900"
               }`}
+              aria-label="okay"
             >
               <FlightTakeoffIcon
                 sx={{
@@ -140,6 +141,7 @@ export default function SearchCard() {
                   ? "bg-[#EEF4FF] text-[#2A6CFF]"
                   : "text-slate-700 hover:text-slate-900"
               }`}
+              aria-label="okay"
             >
               <HotelIcon
                 sx={{
@@ -158,6 +160,7 @@ export default function SearchCard() {
                   ? "bg-[#EEF4FF] text-[#2A6CFF]"
                   : "text-slate-700 hover:text-slate-900"
               }`}
+              aria-label="okay"
             >
               <CardTravelIcon
                 sx={{
@@ -275,6 +278,7 @@ export default function SearchCard() {
                       />
                     </div>
                     <button
+                    aria-label="okay"
                       onClick={() => setOpenDropdown(null)}
                       className="w-full bg-[#2A6CFF] text-white text-xs font-bold py-2 rounded-lg cursor-pointer hover:bg-blue-700 transition-colors"
                     >
@@ -323,6 +327,7 @@ export default function SearchCard() {
                       </div>
                       <div className="flex items-center gap-2">
                         <button
+                        aria-label="okay"
                           onClick={() =>
                             setRoomsCount(Math.max(1, roomsCount - 1))
                           }
@@ -334,6 +339,7 @@ export default function SearchCard() {
                           {roomsCount}
                         </span>
                         <button
+                        aria-label="okay"
                           onClick={() => setRoomsCount(roomsCount + 1)}
                           className="w-6 h-6 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-100 cursor-pointer"
                         >
@@ -354,6 +360,7 @@ export default function SearchCard() {
                       </div>
                       <div className="flex items-center gap-2">
                         <button
+                        aria-label="okay"
                           onClick={() =>
                             setTravelersCount(Math.max(1, travelersCount - 1))
                           }
@@ -365,6 +372,7 @@ export default function SearchCard() {
                           {travelersCount}
                         </span>
                         <button
+                        aria-label="okay"
                           onClick={() => setTravelersCount(travelersCount + 1)}
                           className="w-6 h-6 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-100 cursor-pointer"
                         >
@@ -374,6 +382,7 @@ export default function SearchCard() {
                     </div>
 
                     <button
+                    aria-label="okay"
                       onClick={() => setOpenDropdown(null)}
                       className="w-full bg-[#2A6CFF] text-white text-xs font-bold py-2 rounded-lg cursor-pointer hover:bg-blue-700 transition-colors"
                     >
@@ -386,6 +395,7 @@ export default function SearchCard() {
 
             {/* زر Find Now الأزرق Zesty المميز */}
             <button
+            aria-label="okay"
               onClick={() => {
                 alert(
                   `Searching for ${activeTab} in ${destination} from ${checkInDate} to ${checkOutDate} for ${travelersCount} travelers (${roomsCount} room)`

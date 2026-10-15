@@ -126,7 +126,7 @@ export default function Footer() {
           <div className="flex items-center gap-2 flex-wrap">
             {/* Visa */}
             <div className="h-7 px-2.5 rounded flex items-center justify-center">
-              <img src={i1} alt="Visa" className="h-4 w-auto object-contain" />
+              <img  src={i1} alt="Visa" className="h-4 w-auto object-contain" />
             </div>
 
             {/* stc pay */}

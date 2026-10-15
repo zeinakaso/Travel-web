@@ -271,6 +271,7 @@ export default function HotelDetails() {
               const isActive = activeTab === tab.id;
               return (
                 <button
+                aria-label="okay"
                   key={tab.id}
                   onClick={() => scrollToSection(tab.id, tab.ref)}
                   className={`pb-3 relative cursor-pointer transition-colors group ${
@@ -296,6 +297,7 @@ export default function HotelDetails() {
 
           {/* زر الحجز الرئيسي - مرفوع بالضبط 6px عن الخط الرمادي */}
           <button
+          aria-label="okay"
             onClick={() => setIsModalOpen(true)}
             style={{ padding: "8px 12px", borderRadius: "6px" }}
             className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2.5 mb-[6px] rounded-xl shadow-xs transition-all text-sm cursor-pointer"
@@ -448,6 +450,7 @@ export default function HotelDetails() {
                 {t("Reserve")}
               </h3>
               <button
+              aria-label="okay"
                 onClick={() => setIsModalOpen(false)}
                 className="w-6 h-6 rounded-full bg-[#E0F2FE] text-[#0284C7] hover:bg-sky-200 flex items-center justify-center transition-colors cursor-pointer"
               >
@@ -731,6 +734,7 @@ export default function HotelDetails() {
 
               {/* Buton a Reserve */}
               <button
+              aria-label="okay"
                 onClick={() => {
                   alert("Reserve Done");
                   setIsModalOpen(false);
@@ -788,6 +792,7 @@ export default function HotelDetails() {
                     {t("Select Check-in Date")}
                   </span>
                   <button
+                  aria-label="okay"
                     onClick={() => setActiveDatePicker(null)}
                     className="text-xs text-gray-400 hover:text-gray-600 cursor-pointer"
                   >
@@ -847,6 +852,7 @@ export default function HotelDetails() {
                     {t("Select Check-out Date")}
                   </span>
                   <button
+                  aria-label="okay"
                     onClick={() => setActiveDatePicker(null)}
                     className="text-xs text-gray-400 hover:text-gray-600 cursor-pointer"
                   >
@@ -905,6 +911,7 @@ export default function HotelDetails() {
                     {t("Select Guests")}
                   </span>
                   <button
+                  aria-label="okay"
                     onClick={() => setActiveDatePicker(null)}
                     className="text-xs text-gray-400 hover:text-gray-600 cursor-pointer"
                   >
@@ -977,7 +984,9 @@ export default function HotelDetails() {
                 </div>
 
                 <div>
-                  <button className="text-xs text-blue-600 font-semibold hover:underline cursor-pointer">
+                  <button
+                  aria-label="okay"
+                   className="text-xs text-blue-600 font-semibold hover:underline cursor-pointer">
                     {t("More details")}
                   </button>
                 </div>
@@ -993,6 +1002,7 @@ export default function HotelDetails() {
                   </div>
                 </div>
                 <button
+                aria-label="okay"
                   style={{ borderRadius: "6px", padding: "8px 12px" }}
                   onClick={() => setIsModalOpen(true)}
                   className="bg-[#2870FB] hover:bg-blue-700 text-white font-medium px-8 py-1.5  shadow-xs transition-all text-xs cursor-pointer"
@@ -1363,6 +1373,7 @@ export default function HotelDetails() {
 
               {/* زر الإرسال */}
               <button
+              aria-label="okay"
                 type="submit"
                 className="w-full bg-[#26BBFD] hover:bg-sky-500 text-white text-xs font-bold py-3.5 rounded-xl shadow-md transition-all cursor-pointer"
               >

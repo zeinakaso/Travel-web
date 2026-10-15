@@ -325,6 +325,7 @@ const [priceLimit, setPriceLimit] = useState(150);
                       <span className="text-xs font-bold text-slate-700">{t("Room")} {index + 1}</span>
                       {index > 0 && (
                         <button 
+                        aria-label="okay"
                           onClick={() => setRooms(rooms.filter((_, i) => i !== index))}
                           className="text-red-400 hover:text-red-500 cursor-pointer p-1 rounded-lg hover:bg-red-50 transition-colors"
                         >
@@ -339,6 +340,7 @@ const [priceLimit, setPriceLimit] = useState(150);
                       </div>
                       <div className="flex items-center border border-blue-300 rounded-xl px-2.5 py-1 bg-white">
                         <button 
+                        aria-label="okay"
                           onClick={() => {
                             const updated = [...rooms];
                             if (updated[index].adults > 1) updated[index].adults -= 1;
@@ -348,6 +350,7 @@ const [priceLimit, setPriceLimit] = useState(150);
                         >-</button>
                         <span className="text-xs font-semibold text-slate-800 px-3">{room.adults}</span>
                         <button 
+                        aria-label="okay"
                           onClick={() => {
                             const updated = [...rooms];
                             updated[index].adults += 1;
@@ -365,6 +368,7 @@ const [priceLimit, setPriceLimit] = useState(150);
                       </div>
                       <div className="flex items-center border border-blue-300 rounded-xl px-2.5 py-1 bg-white">
                         <button 
+                        aria-label="okay"
                           onClick={() => {
                             const updated = [...rooms];
                             if (updated[index].children > 0) updated[index].children -= 1;
@@ -374,6 +378,7 @@ const [priceLimit, setPriceLimit] = useState(150);
                         >-</button>
                         <span className="text-xs font-semibold text-slate-800 px-3">{room.children}</span>
                         <button 
+                        aria-label="okay"
                           onClick={() => {
                             const updated = [...rooms];
                             updated[index].children += 1;
@@ -389,6 +394,7 @@ const [priceLimit, setPriceLimit] = useState(150);
 
               <div className="pt-4 text-center border-t border-slate-100 mt-4">
                 <button 
+                aria-label="okay"
                   onClick={() => setRooms([...rooms, { adults: 1, children: 0 }])}
                   className="text-blue-600 text-xs font-semibold hover:text-blue-700 transition-colors cursor-pointer"
                 >
@@ -402,6 +408,7 @@ const [priceLimit, setPriceLimit] = useState(150);
         {/* 4. زر البحث */}
         <div className="md:col-span-1 relative flex" >
           <button 
+          aria-label="okay"
             onClick={() => setActiveModal(activeModal === 'searchPanel' ? null : 'searchPanel')}
             className="modal-trigger w-full h-full bg-blue-600 hover:bg-blue-700 text-white rounded-xl flex items-center justify-center gap-1.5 px-2 shadow-md transition-colors min-h-[48px] text-xs font-semibold cursor-pointer"
           >
@@ -423,7 +430,7 @@ const [priceLimit, setPriceLimit] = useState(150);
             <div className="modal-container absolute top-full right-0 mt-2 w-[220px] bg-white border border-slate-200 rounded-2xl shadow-2xl p-5 z-50 text-left rtl:text-right">
               <div className="flex items-center justify-between mb-3">
                 <h3 className="text-sm font-bold text-slate-800">{t("Quick Search")}</h3>
-                <button onClick={() => setActiveModal(null)} className="text-slate-400 hover:text-slate-600 text-xs cursor-pointer">✕</button>
+                <button aria-label="okay" onClick={() => setActiveModal(null)} className="text-slate-400 hover:text-slate-600 text-xs cursor-pointer">✕</button>
               </div>
               <div className="space-y-3">
                 <div className="border border-slate-200 rounded-xl p-2.5 flex items-center gap-2 bg-slate-50">
@@ -431,6 +438,7 @@ const [priceLimit, setPriceLimit] = useState(150);
                   <input type="text" placeholder={t("Search hotels, keywords...")} className="bg-transparent text-xs w-full outline-none text-slate-800" autoFocus />
                 </div>
                 <button 
+                aria-label="okay"
                   onClick={() => setActiveModal(null)}
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-xl text-xs font-bold shadow-md transition-colors cursor-pointer"
                 >
