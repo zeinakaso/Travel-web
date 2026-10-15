@@ -7,7 +7,7 @@ import {
 } from 'react-icons/fa';
 
 // الشعار والصور
-import logoImg from '../assets/logo.png';
+import logoImg from '../assets/logo (1).png';
 import i1 from '../assets/i1.jpg';
 import i2 from '../assets/i2.jpg';
 import i3 from '../assets/i3.jpg';

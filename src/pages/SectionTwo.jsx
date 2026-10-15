@@ -11,7 +11,7 @@ import packageImg3 from "../assets/img1.jpg";
 import packageImg4 from "../assets/img3.jpg";
 import packageImg5 from "../assets/img2.jpg";
 import packageImg6 from "../assets/img1.jpg";
-import packageImg7 from "../assets/Vector (1).png";
+// import packageImg7 from "../assets/Vector (1).png";
 
 // translation
 import "../i18n";
@@ -164,11 +164,11 @@ export default function SectionTwo() {
                   isAnimating ? "opacity-0 scale-95" : "opacity-100 scale-100"
                 }`}
               />
-              <img
+              {/* <img
                 src={packageImg7}
                 alt="decoration"
                 className="absolute inset-0 w-full h-full object-contain pointer-events-none"
-              />
+              /> */}
             </div>
           </div>
         </div>
