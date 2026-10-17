@@ -47,7 +47,7 @@ export default function Footer() {
                   {t("TRAVEL WITH US")}
                 </h3>
               </div>
-              <p className="text-gray-400 text-xs leading-5 mb-3">
+              <p className="text-gray-600 text-xs leading-5 mb-3">
                 {t("No matter who you are, or where you are going, our travel brands help every type of traveler not only find the trip that's right for them, but get the best value every time.")}
               </p>
               {/* أيقونات السفر الزرقاء الصغيرة */}
@@ -68,7 +68,7 @@ export default function Footer() {
                   {t("PARTNER WITH US")}
                 </h3>
               </div>
-              <p className="text-gray-400 text-xs leading-5">
+              <p className="text-gray-600 text-xs leading-5">
                 {t("We connect partners big and small to the universe of travelers, giving access to data, tools and technology that empowers, maximizes potential and builds their business.")}
               </p>
             </div>
@@ -115,7 +115,7 @@ export default function Footer() {
         </div>
 
         {/* --- القسم السفلي: الحقوق + طرق الدفع --- */}
-        <div className="pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+        <div className="pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-600">
           
           {/* نص حقوق الملكية */}
           <div>

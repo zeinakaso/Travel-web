@@ -177,7 +177,7 @@ export default function SectionTwo() {
       </div>
 
       {/* --- شريط التنقل السفلي --- */}
-      <div className="max-w-7xl mx-auto pt-8 border-t border-gray-100 mt-6 flex flex-row items-center justify-between gap-4 text-xs md:text-sm text-gray-400 font-medium select-none">
+      <div className="max-w-7xl mx-auto pt-8 border-t border-gray-100 mt-6 flex flex-row items-center justify-between gap-4 text-xs md:text-sm text-gray-600 font-medium select-none">
         
         {/* زر PREVIOUS (السابق) */}
         <button

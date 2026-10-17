@@ -322,7 +322,7 @@ export default function HotelDetails() {
             <StarIcon className="text-amber-400 text-base" />
           </div>
           <p className="text-sm text-gray-500">4.2/5 {t("Very Good")}</p>
-          <p className="text-xs text-gray-400 mt-1">
+          <p className="text-xs text-gray-600 mt-1">
             {t("Guests rated this property 4.0/5 for cleanliness.")}
           </p>
         </div>
@@ -478,7 +478,7 @@ export default function HotelDetails() {
                 <h4 className="font-bold text-gray-900 text-xs leading-snug">
                   {t("Economy Double Room, 1 Double Bed, Non Smoking")}
                 </h4>
-                <div className="flex items-center gap-3 text-[10px] text-gray-400 font-normal">
+                <div className="flex items-center gap-3 text-[10px] text-gray-600 font-normal">
                   <span className="flex items-center gap-1">
                     <RoundedCornerIcon
                       style={{ color: "#26BBFD", fontSize: 13 }}
@@ -549,7 +549,7 @@ export default function HotelDetails() {
 
               {/* Card para iti Date ken Dadduma pa */}
               <div className="bg-[#E0F7FE]/60 p-3.5 rounded-xl border border-sky-100 space-y-1.5">
-                <div className="grid grid-cols-2 text-[10px] text-gray-400 font-medium">
+                <div className="grid grid-cols-2 text-[10px] text-gray-600 font-medium">
                   <span>{t("Check In - Check Out")}</span>
                   <span>{t("Country")}</span>
                 </div>
@@ -589,7 +589,7 @@ export default function HotelDetails() {
                         {t("No extras")}
                       </span>
                     </div>
-                    <span className="text-xs text-gray-400">+$0</span>
+                    <span className="text-xs text-gray-600">+$0</span>
                   </label>
 
                   <label className="flex items-center justify-between cursor-pointer">
@@ -605,7 +605,7 @@ export default function HotelDetails() {
                         {t("Breakfast buffet")}
                       </span>
                     </div>
-                    <span className="text-xs text-gray-400">+$15</span>
+                    <span className="text-xs text-gray-600">+$15</span>
                   </label>
                 </div>
               </div>
@@ -645,7 +645,7 @@ export default function HotelDetails() {
                       1698.00 SAR
                     </span>
                   </div>
-                  <p className="text-[10px] text-gray-400 mt-0.5">
+                  <p className="text-[10px] text-gray-600 mt-0.5">
                     {t("includes taxes & fees")}
                   </p>
                 </div>
@@ -774,14 +774,14 @@ export default function HotelDetails() {
               }`}
             >
               <div className="flex flex-col text-left rtl:text-right">
-                <span className="text-[11px] text-gray-400">
+                <span className="text-[11px] text-gray-600">
                   {t("Check in:")}
                 </span>
                 <span className="text-xs font-bold text-blue-600">
                   {t(dates.checkIn)}
                 </span>
               </div>
-              <KeyboardArrowDownIcon className="text-gray-400 text-sm" />
+              <KeyboardArrowDownIcon className="text-gray-600 text-sm" />
             </div>
 
             {/* القائمة المنسدلة للتقويم (Check In) */}
@@ -794,7 +794,7 @@ export default function HotelDetails() {
                   <button
                   aria-label="okay"
                     onClick={() => setActiveDatePicker(null)}
-                    className="text-xs text-gray-400 hover:text-gray-600 cursor-pointer"
+                    className="text-xs text-gray-600 hover:text-gray-600 cursor-pointer"
                   >
                     ✕
                   </button>
@@ -834,14 +834,14 @@ export default function HotelDetails() {
               }`}
             >
               <div className="flex flex-col text-left rtl:text-right">
-                <span className="text-[11px] text-gray-400">
+                <span className="text-[11px] text-gray-600">
                   {t("Check out:")}
                 </span>
                 <span className="text-xs font-bold text-blue-600">
                   {t(dates.checkOut)}
                 </span>
               </div>
-              <KeyboardArrowDownIcon className="text-gray-400 text-sm shrink-0" />
+              <KeyboardArrowDownIcon className="text-gray-600 text-sm shrink-0" />
             </div>
 
             {/* القائمة المنسدلة للتقويم (Check Out) */}
@@ -854,7 +854,7 @@ export default function HotelDetails() {
                   <button
                   aria-label="okay"
                     onClick={() => setActiveDatePicker(null)}
-                    className="text-xs text-gray-400 hover:text-gray-600 cursor-pointer"
+                    className="text-xs text-gray-600 hover:text-gray-600 cursor-pointer"
                   >
                     ✕
                   </button>
@@ -893,14 +893,14 @@ export default function HotelDetails() {
               }`}
             >
               <div className="flex flex-col text-left rtl:text-right">
-                <span className="text-[11px] text-gray-400">
+                <span className="text-[11px] text-gray-600">
                   {t("Guests:")}
                 </span>
                 <span className="text-xs font-bold text-blue-600 truncate">
                   {t(dates.guests)}
                 </span>
               </div>
-              <KeyboardArrowDownIcon className="text-gray-400 text-sm shrink-0" />
+              <KeyboardArrowDownIcon className="text-gray-600 text-sm shrink-0" />
             </div>
 
             {/* خيارات سريعة لاختيار الضيوف بنفس عرض المربع (w-full) */}
@@ -913,7 +913,7 @@ export default function HotelDetails() {
                   <button
                   aria-label="okay"
                     onClick={() => setActiveDatePicker(null)}
-                    className="text-xs text-gray-400 hover:text-gray-600 cursor-pointer"
+                    className="text-xs text-gray-600 hover:text-gray-600 cursor-pointer"
                   >
                     ✕
                   </button>
@@ -997,7 +997,7 @@ export default function HotelDetails() {
                   <div className="text-sm font-extrabold text-[#26bbfd]">
                     {room.price}
                   </div>
-                  <div className="text-[10px] text-gray-400">
+                  <div className="text-[10px] text-gray-600">
                     {t(`${room.total}`)}
                   </div>
                 </div>
@@ -1325,7 +1325,7 @@ export default function HotelDetails() {
               <h3 className="text-base font-bold text-gray-900">
                 {t("Add Review")}
               </h3>
-              <p className="text-xs text-gray-400">
+              <p className="text-xs text-gray-600">
                 {t(
                   "Please add review, this will help us to improve your experience",
                 )}
