@@ -104,7 +104,7 @@ const [priceLimit, setPriceLimit] = useState(150);
                <PlaceIcon/>
             </div>
             <div className="flex flex-col justify-center text-left rtl:text-right">
-              <span className="text-[11px] text-slate-400 leading-tight">{t("Going to")}:</span>
+              <span className="text-[11px] text-slate-600 leading-tight">{t("Going to")}:</span>
               <span className="text-sm font-medium text-blue-600 truncate mt-0.5">{t("Berlin (and vicinity), Germany")}</span>
             </div>
           </div>
@@ -115,7 +115,7 @@ const [priceLimit, setPriceLimit] = useState(150);
               <h3 className="text-sm font-bold text-slate-800 mb-3">{t("Location")}</h3>
               <div className="space-y-3">
                 
-                <div className="border border-slate-200 rounded-xl p-2.5 flex items-center gap-2 text-slate-400 text-xs bg-white hover:border-slate-300 transition-all">
+                <div className="border border-slate-200 rounded-xl p-2.5 flex items-center gap-2 text-slate-600 text-xs bg-white hover:border-slate-300 transition-all">
                   <LanguageRoundedIcon style={{color:"#26BBFD"}} />
                   <input 
                     type="text" 
@@ -124,7 +124,7 @@ const [priceLimit, setPriceLimit] = useState(150);
                   />
                 </div>
 
-                <div className="border border-slate-200 rounded-xl p-2.5 flex items-center gap-2 text-slate-400 text-xs bg-white hover:border-slate-300 transition-all">
+                <div className="border border-slate-200 rounded-xl p-2.5 flex items-center gap-2 text-slate-600 text-xs bg-white hover:border-slate-300 transition-all">
                   <PlaceOutlinedIcon style={{color:"#26BBFD"}}/>
                   <input 
                     type="text" 
@@ -154,7 +154,7 @@ const [priceLimit, setPriceLimit] = useState(150);
                       <PlaceIcon/>
                       <div>
                         <p className="font-semibold text-slate-700 leading-tight">Makkah</p>
-                        <p className="text-[10px] text-slate-400 mt-0.5">Province, Saudi Arabia</p>
+                        <p className="text-[10px] text-slate-600 mt-0.5">Province, Saudi Arabia</p>
                       </div>
                     </div>
                   ))}
@@ -176,11 +176,11 @@ const [priceLimit, setPriceLimit] = useState(150);
                <CalendarMonthIcon/>
               </div>
               <div className="flex flex-col justify-center text-left rtl:text-right">
-                <span className="text-[11px] text-slate-400 leading-tight">{t("Check in-out")}:</span>
+                <span className="text-[11px] text-slate-600 leading-tight">{t("Check in-out")}:</span>
                 <span className="text-sm font-medium text-blue-600 mt-0.5">Oct 23 - Nov 20</span>
               </div>
             </div>
-            <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            <svg className="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </div>
 
           {activeModal === 'calendar' && (
@@ -190,8 +190,8 @@ const [priceLimit, setPriceLimit] = useState(150);
 
               <div className="flex items-center justify-between bg-slate-50/80 border border-slate-100 p-2.5 sm:p-3 rounded-2xl mb-3">
                 <div>
-                  <span className="text-xs font-bold text-slate-400">{selectedCheckIn} {currentMonth.name.slice(0, 3)}</span>
-                  <p className="text-[10px] text-slate-400">Thursday</p>
+                  <span className="text-xs font-bold text-slate-600">{selectedCheckIn} {currentMonth.name.slice(0, 3)}</span>
+                  <p className="text-[10px] text-slate-600">Thursday</p>
                 </div>
                 
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-sky-400 text-white rounded-full flex items-center justify-center shadow-md flex-shrink-0">
@@ -199,8 +199,8 @@ const [priceLimit, setPriceLimit] = useState(150);
                 </div>
 
                 <div className="text-right rtl:text-left">
-                  <span className="text-xs font-bold text-slate-400">{selectedCheckOut} {nextMonth.name.slice(0, 3)}</span>
-                  <p className="text-[10px] text-slate-400">Saturday</p>
+                  <span className="text-xs font-bold text-slate-600">{selectedCheckOut} {nextMonth.name.slice(0, 3)}</span>
+                  <p className="text-[10px] text-slate-600">Saturday</p>
                 </div>
               </div>
 
@@ -209,20 +209,20 @@ const [priceLimit, setPriceLimit] = useState(150);
                   <IconButton 
                     size="small" 
                     onClick={() => setCurrentMonthIndex(prev => (prev > 0 ? prev - 1 : 0))}
-                    className="text-slate-400 hover:text-slate-600"
+                    className="text-slate-600 hover:text-slate-600"
                   >
                     {isRtl ? <ChevronRightIcon fontSize="small" /> : <ChevronLeftIcon fontSize="small" />}
                   </IconButton>
                   
                   <div className="flex items-center gap-6 sm:gap-12">
-                    <span className="text-xs font-bold text-slate-400">{currentMonth.name}</span>
-                    <span className="text-xs font-bold text-slate-400 hidden sm:inline">{nextMonth.name}</span>
+                    <span className="text-xs font-bold text-slate-600">{currentMonth.name}</span>
+                    <span className="text-xs font-bold text-slate-600 hidden sm:inline">{nextMonth.name}</span>
                   </div>
                   
                   <IconButton 
                     size="small" 
                     onClick={() => setCurrentMonthIndex(prev => (prev < monthsList.length - 2 ? prev + 1 : prev))}
-                    className="text-slate-400 hover:text-slate-600"
+                    className="text-slate-600 hover:text-slate-600"
                   >
                     {isRtl ? <ChevronLeftIcon fontSize="small" /> : <ChevronRightIcon fontSize="small" />}
                   </IconButton>
@@ -230,7 +230,7 @@ const [priceLimit, setPriceLimit] = useState(150);
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-center text-xs">
                   <div>
-                    <div className="sm:hidden text-center text-xs font-bold text-slate-400 mb-1">{currentMonth.name}</div>
+                    <div className="sm:hidden text-center text-xs font-bold text-slate-600 mb-1">{currentMonth.name}</div>
                     <div className="grid grid-cols-7 text-[10px] text-slate-800 font-medium mb-1" style={{fontWeight:"700"}}>
                       <span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span>
                     </div>
@@ -260,7 +260,7 @@ const [priceLimit, setPriceLimit] = useState(150);
                   </div>
 
                   <div>
-                    <div className="sm:hidden text-center text-xs font-bold text-slate-400 mb-1 mt-1">{nextMonth.name}</div>
+                    <div className="sm:hidden text-center text-xs font-bold text-slate-600 mb-1 mt-1">{nextMonth.name}</div>
                     <div className="grid grid-cols-7 text-[10px] text-slate-800 font-medium mb-1" style={{fontWeight:"700"}}>
                       <span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span>
                     </div>
@@ -305,11 +305,11 @@ const [priceLimit, setPriceLimit] = useState(150);
                    <GroupsRoundedIcon/>
               </div>
               <div className="flex flex-col justify-center text-left rtl:text-right">
-                <span className="text-[11px] text-slate-400 leading-tight">{t("Travelers")}</span>
+                <span className="text-[11px] text-slate-600 leading-tight">{t("Travelers")}</span>
                 <span className="text-sm font-medium text-blue-600 mt-0.5">{rooms.length} {t("Rooms").toLowerCase()}, {rooms.reduce((acc, r) => acc + r.adults + r.children, 0)} {t("Travelers").toLowerCase()}</span>
               </div>
             </div>
-            <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            <svg className="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </div>
 
           {activeModal === 'travelers' && (
@@ -336,7 +336,7 @@ const [priceLimit, setPriceLimit] = useState(150);
                     
                     <div className="flex items-center justify-between mb-3">
                       <div>
-                        <p className="text-xs font-semibold text-slate-400">{t("Adults")}</p>
+                        <p className="text-xs font-semibold text-slate-600">{t("Adults")}</p>
                       </div>
                       <div className="flex items-center border border-blue-300 rounded-xl px-2.5 py-1 bg-white">
                         <button 
@@ -363,8 +363,8 @@ const [priceLimit, setPriceLimit] = useState(150);
 
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-xs font-semibold text-slate-400">{t("Children")}</p>
-                        <span className="text-[10px] text-slate-400">{t("Age: 0-17")}</span>
+                        <p className="text-xs font-semibold text-slate-600">{t("Children")}</p>
+                        <span className="text-[10px] text-slate-600">{t("Age: 0-17")}</span>
                       </div>
                       <div className="flex items-center border border-blue-300 rounded-xl px-2.5 py-1 bg-white">
                         <button 
@@ -430,7 +430,7 @@ const [priceLimit, setPriceLimit] = useState(150);
             <div className="modal-container absolute top-full right-0 mt-2 w-[220px] bg-white border border-slate-200 rounded-2xl shadow-2xl p-5 z-50 text-left rtl:text-right">
               <div className="flex items-center justify-between mb-3">
                 <h3 className="text-sm font-bold text-slate-800">{t("Quick Search")}</h3>
-                <button aria-label="okay" onClick={() => setActiveModal(null)} className="text-slate-400 hover:text-slate-600 text-xs cursor-pointer">✕</button>
+                <button aria-label="okay" onClick={() => setActiveModal(null)} className="text-slate-600 hover:text-slate-600 text-xs cursor-pointer">✕</button>
               </div>
               <div className="space-y-3">
                 <div className="border border-slate-200 rounded-xl p-2.5 flex items-center gap-2 bg-slate-50">
@@ -645,12 +645,12 @@ const [priceLimit, setPriceLimit] = useState(150);
                       <span className="flex items-center gap-1.5"><FreeBreakfastOutlinedIcon style={{color:"#26BBFD", fontSize: "18px"}}/>{t("Breakfast included")}</span>
                     </div>
 
-                    <div className="flex items-center gap-1.5 text-xs text-slate-400 pt-0.5">
+                    <div className="flex items-center gap-1.5 text-xs text-slate-600 pt-0.5">
                       <PlaceIcon style={{color:"orange"}} />
                       <span style={{color:"black"}}>{t(hotel.distanceKey)}</span>
                     </div>
 
-                    <p className="text-xs text-slate-400 line-clamp-1 pt-1">
+                    <p className="text-xs text-slate-600 line-clamp-1 pt-1">
                       {t("lorem ipsum dolor sit amet, consecte adipiscing elit...")}
                     </p>
                   </div>
@@ -659,14 +659,14 @@ const [priceLimit, setPriceLimit] = useState(150);
                 {/* السعر في الطرف تماماً بالعربي والإنجليزي */}
                 <div className="text-right rtl:text-left shrink-0 self-start md:self-end flex flex-col items-end rtl:items-start justify-end pb-1 ml-auto rtl:ml-0 rtl:mr-auto">
                   <span className="text-lg font-bold text-blue-600 leading-tight">{hotel.price} SAR</span>
-                  <span className="text-[10px] text-slate-400 mt-0.5">{t("Total for 1 night (incl. VAT)")}</span>
+                  <span className="text-[10px] text-slate-600 mt-0.5">{t("Total for 1 night (incl. VAT)")}</span>
                 </div>
 
               </div>
             ))}
 
             {filteredHotels.length === 0 && (
-              <div className="text-center py-12 text-slate-400 text-sm">
+              <div className="text-center py-12 text-slate-600 text-sm">
                 {t("No hotels match your selected filters.")}
               </div>
             )}

@@ -104,7 +104,7 @@ export default function Nav() {
           {/* زر الإغلاق (X) */}
           <button
             onClick={handleClose}
-            className="absolute top-2 right-2 text-slate-400 hover:text-slate-600 p-1.5 rounded-full hover:bg-slate-100 transition-colors cursor-pointer z-10"
+            className="absolute top-2 right-2 text-slate-600 hover:text-slate-600 p-1.5 rounded-full hover:bg-slate-100 transition-colors cursor-pointer z-10"
             aria-label="Close menu"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
@@ -147,7 +147,7 @@ export default function Nav() {
 
           {/* أزرار اللغة */}
           <div className="px-5 py-2 space-y-1.5">
-            <span className="text-[11px] font-bold text-slate-400 block px-1 mb-1">{t("Language")}</span>
+            <span className="text-[11px] font-bold text-slate-600 block px-1 mb-1">{t("Language")}</span>
             <div className="grid grid-cols-2 gap-2">
               <button
               aria-label="okay"

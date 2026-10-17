@@ -415,7 +415,7 @@ export default function HotelDetails() {
                 alignItems: "center",
               }}
             >
-              <p className="text-slate-400 max-w-[70%] leading-tight text-[11px] pt-3">
+              <p className="text-slate-600 max-w-[70%] leading-tight text-[11px] pt-3">
                 {t(
                   "Hotel_Address",
                   "Terminal 1 / Gate z 25, frankfurt am Main/ Airport, Frankfurt, Hessen, 60549",
@@ -1028,7 +1028,7 @@ export default function HotelDetails() {
             <h2 className="text-lg font-bold text-slate-800">
               {t("About this area")}
             </h2>
-            <p className="text-xs md:text-sm text-slate-400 leading-relaxed font-normal">
+            <p className="text-xs md:text-sm text-slate-600 leading-relaxed font-normal">
               {t(
                 "About_Area_Description",
                 "Located in Frankfurt Airport Area neighborhood, MY CLOUD Transit Hotel is connected to a rail/subway station. Neues Theater Höchst and Jahrhunderthalle are cultural highlights, and some of the area's landmarks include Hoechst Castle and Henninger Turm. Looking to enjoy an event or a game while in town? See what's happening at Deutsche Bank Park or Fraport Arena.",
@@ -1052,7 +1052,7 @@ export default function HotelDetails() {
 
             {/* العنوان ورابط الخريطة تحته */}
             <div className="flex items-start justify-between pt-1 text-xs">
-              <p className="text-slate-400 max-w-[70%] leading-tight text-[11px]">
+              <p className="text-slate-600 max-w-[70%] leading-tight text-[11px]">
                 {t(
                   "Hotel_Address",
                   "Terminal 1 / Gate z 25, frankfurt am Main/ Airport, Frankfurt, Hessen, 60549",
