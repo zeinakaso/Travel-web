@@ -23,11 +23,11 @@ import DirectionsSubwayOutlinedIcon from "@mui/icons-material/DirectionsSubwayOu
 // import ForestIcon from "@mui/icons-material/Forest";
 // import FlightIcon from "@mui/icons-material/Flight";
 // استيراد الصور
-import mainImg from "../assets/h1.jpg";
-import img2 from "../assets/h2.jpg";
-import img3 from "../assets/h3.jpg";
-import img4 from "../assets/h4.jpg";
-import img5 from "../assets/h5.jpg";
+import mainImg from "../assets/h1.webp";
+import img2 from "../assets/h2.webp";
+import img3 from "../assets/h3.webp";
+import img4 from "../assets/h4.webp";
+import img5 from "../assets/h5.webp";
 // import { Divider } from "@mui/material";
 import Rating from "@mui/material/Rating";
 // import StarIcon from "@mui/icons-material/Star";

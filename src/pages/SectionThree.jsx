@@ -12,14 +12,14 @@ import "swiper/css/pagination";
 // import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 // استيراد الصور الخاصة بالبطاقات
-import usImg from "../assets/11.jpg"; // صورة أمريكا
-import ukImg from "../assets/44.jpg"; // صورة بريطانيا
-import germanyImg from "../assets/22.jpg"; // صورة ألمانيا
+import usImg from "../assets/11.webp"; // صورة أمريكا
+import ukImg from "../assets/44.webp"; // صورة بريطانيا
+import germanyImg from "../assets/22.webp"; // صورة ألمانيا
 
 // استيراد صور الأعلام الصغيرة
-import usFlag from "../assets/3.jpg";
-import ukFlag from "../assets/2.jpg";
-import germanyFlag from "../assets/1.jpg";
+import usFlag from "../assets/3.webp";
+import ukFlag from "../assets/2.webp";
+import germanyFlag from "../assets/1.webp";
 
 // translation
 import "../i18n";

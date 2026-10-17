@@ -1,8 +1,8 @@
 // استيراد صور الكاردات
-import cardImg1 from '../assets/img2.jpg'; // صورة الحقائب والطائرة
-import cardImg2 from '../assets/img1.jpg'; // صورة البحر والأناناس
-import cardImg3 from '../assets/img3.jpg'; // صورة الجبال العلوية
-import cardImg4 from '../assets/img4.jpg'; // صورة البحر العريضة (Quick Trips)
+import cardImg1 from '../assets/img2.webp'; // صورة الحقائب والطائرة
+import cardImg2 from '../assets/img1.webp'; // صورة البحر والأناناس
+import cardImg3 from '../assets/img3.webp'; // صورة الجبال العلوية
+import cardImg4 from '../assets/img4.webp'; // صورة البحر العريضة (Quick Trips)
 
 // translation
 import '../i18n';

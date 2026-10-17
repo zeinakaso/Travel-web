@@ -7,10 +7,10 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 
-import p from "../assets/Isolation_Mode.png";
-import p1 from "../assets/icon (3).png";
-import p2 from "../assets/Rectangle.png";
-import p22 from "../assets/Group.png";
+import p from "../assets/Isolation_Mode.webp";
+import p1 from "../assets/icon (3).webp";
+import p2 from "../assets/Rectangle.webp";
+import p22 from "../assets/Group.webp";
 
 // translation
 import '../i18n';
@@ -76,6 +76,7 @@ export default function SearchCard() {
       <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none">
         <img
           src={p22}
+          loading="lazy"
           alt="Wave Background"
           className="w-full h-auto object-cover block min-h-[40px]"
         />
@@ -84,6 +85,7 @@ export default function SearchCard() {
       {/* 3. الشكل الأزرق الديكوري على اليسار */}
       <img
         src={p}
+        loading="lazy"
         alt="Blue decorative shape"
         className="
           absolute

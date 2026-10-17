@@ -14,7 +14,7 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import TsunamiOutlinedIcon from "@mui/icons-material/TsunamiOutlined";
 import FreeBreakfastOutlinedIcon from "@mui/icons-material/FreeBreakfastOutlined";
 import Slider from '@mui/material/Slider';
-import pp from "../assets/11.jpg"; // استبدل حسب مسار الصورة لديك
+import pp from "../assets/11.webp"; // استبدل حسب مسار الصورة لديك
 
 // translation
 import '../i18n';

@@ -9,8 +9,8 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 
-import logoImg from "../assets/logo (1).png";
-import p2 from "../assets/p2.jpg";
+import logoImg from "../assets/logo (1).webp";
+import p2 from "../assets/p2.webp";
 
 import { useNavigate, Link } from "react-router-dom";
 

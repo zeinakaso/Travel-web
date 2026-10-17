@@ -5,13 +5,13 @@ import AirplanemodeActiveSharpIcon from "@mui/icons-material/AirplanemodeActiveS
 import CheckSharpIcon from "@mui/icons-material/CheckSharp";
 
 // استيراد الصور
-import packageImg1 from "../assets/Group 2311 (2).png";
-import packageImg2 from "../assets/img2.jpg";
-import packageImg3 from "../assets/img1.jpg";
-import packageImg4 from "../assets/img3.jpg";
-import packageImg5 from "../assets/img2.jpg";
-import packageImg6 from "../assets/img1.jpg";
-// import packageImg7 from "../assets/Vector (1).png";
+import packageImg1 from "../assets/Group 2311 (2).webp";
+import packageImg2 from "../assets/img2.webp";
+import packageImg3 from "../assets/img1.webp";
+import packageImg4 from "../assets/img3.webp";
+import packageImg5 from "../assets/img2.webp";
+import packageImg6 from "../assets/img1.webp";
+// import packageImg7 from "../assets/Vector (1).webp";
 
 // translation
 import "../i18n";

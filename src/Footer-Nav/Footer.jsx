@@ -7,12 +7,12 @@ import {
 } from 'react-icons/fa';
 
 // الشعار والصور
-import logoImg from '../assets/logo (1).png';
-import i1 from '../assets/i1.jpg';
-import i2 from '../assets/i2.jpg';
-import i3 from '../assets/i3.jpg';
-import i4 from '../assets/i4.jpg';
-import i5 from '../assets/i5.jpg';
+import logoImg from '../assets/logo (1).webp';
+import i1 from '../assets/i1.webp';
+import i2 from '../assets/i2.webp';
+import i3 from '../assets/i3.webp';
+import i4 from '../assets/i4.webp';
+import i5 from '../assets/i5.webp';
 
 // translation
 import '../i18n';
