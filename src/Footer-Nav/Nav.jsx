@@ -50,7 +50,7 @@ export default function Nav() {
       {/* 2. زر القائمة الرئيسي */}
       <div>
         <button
-          aria-label="okay"
+          aria-label="open"
           onClick={handleClick}
           className="flex items-center justify-center gap-1 bg-[#26bbfd] hover:bg-blue-400 text-white p-1.5 sm:p-2 px-2.5 sm:px-3 rounded-xl shadow-md transition-all duration-200 cursor-pointer"
           aria-controls={open ? "profile-menu" : undefined}
@@ -190,7 +190,7 @@ export default function Nav() {
             </span>
             <div className="grid grid-cols-2 gap-2">
               <button
-                aria-label="okay"
+                aria-label="language arabic"
                 onClick={() => handleLanguageChange("ar")}
                 className={`py-2 rounded-xl text-xs font-bold transition-all cursor-pointer text-center ${
                   i18n.language === "ar"
@@ -201,7 +201,7 @@ export default function Nav() {
                 العربية
               </button>
               <button
-                aria-label="okay"
+                aria-label="en"
                 onClick={() => handleLanguageChange("en")}
                 className={`py-2 rounded-xl text-xs font-bold transition-all cursor-pointer text-center ${
                   i18n.language === "en"

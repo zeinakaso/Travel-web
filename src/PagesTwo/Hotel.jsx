@@ -325,7 +325,7 @@ const [priceLimit, setPriceLimit] = useState(150);
                       <span className="text-xs font-bold text-slate-700">{t("Room")} {index + 1}</span>
                       {index > 0 && (
                         <button 
-                        aria-label="okay"
+                        aria-label="rooms"
                           onClick={() => setRooms(rooms.filter((_, i) => i !== index))}
                           className="text-red-400 hover:text-red-500 cursor-pointer p-1 rounded-lg hover:bg-red-50 transition-colors"
                         >
@@ -340,7 +340,7 @@ const [priceLimit, setPriceLimit] = useState(150);
                       </div>
                       <div className="flex items-center border border-blue-300 rounded-xl px-2.5 py-1 bg-white">
                         <button 
-                        aria-label="okay"
+                        aria-label=" remove Adults"
                           onClick={() => {
                             const updated = [...rooms];
                             if (updated[index].adults > 1) updated[index].adults -= 1;
@@ -350,7 +350,7 @@ const [priceLimit, setPriceLimit] = useState(150);
                         >-</button>
                         <span className="text-xs font-semibold text-slate-800 px-3">{room.adults}</span>
                         <button 
-                        aria-label="okay"
+                        aria-label="add adults"
                           onClick={() => {
                             const updated = [...rooms];
                             updated[index].adults += 1;
@@ -368,7 +368,7 @@ const [priceLimit, setPriceLimit] = useState(150);
                       </div>
                       <div className="flex items-center border border-blue-300 rounded-xl px-2.5 py-1 bg-white">
                         <button 
-                        aria-label="okay"
+                        aria-label="children"
                           onClick={() => {
                             const updated = [...rooms];
                             if (updated[index].children > 0) updated[index].children -= 1;
@@ -378,7 +378,7 @@ const [priceLimit, setPriceLimit] = useState(150);
                         >-</button>
                         <span className="text-xs font-semibold text-slate-800 px-3">{room.children}</span>
                         <button 
-                        aria-label="okay"
+                        aria-label="add"
                           onClick={() => {
                             const updated = [...rooms];
                             updated[index].children += 1;
@@ -394,7 +394,7 @@ const [priceLimit, setPriceLimit] = useState(150);
 
               <div className="pt-4 text-center border-t border-slate-100 mt-4">
                 <button 
-                aria-label="okay"
+                aria-label="Add Another Room"
                   onClick={() => setRooms([...rooms, { adults: 1, children: 0 }])}
                   className="text-blue-600 text-xs font-semibold hover:text-blue-700 transition-colors cursor-pointer"
                 >
@@ -408,7 +408,7 @@ const [priceLimit, setPriceLimit] = useState(150);
         {/* 4. زر البحث */}
         <div className="md:col-span-1 relative flex" >
           <button 
-          aria-label="okay"
+          aria-label="search"
             onClick={() => setActiveModal(activeModal === 'searchPanel' ? null : 'searchPanel')}
             className="modal-trigger w-full h-full bg-blue-600 hover:bg-blue-700 text-white rounded-xl flex items-center justify-center gap-1.5 px-2 shadow-md transition-colors min-h-[48px] text-xs font-semibold cursor-pointer"
           >
@@ -430,7 +430,7 @@ const [priceLimit, setPriceLimit] = useState(150);
             <div className="modal-container absolute top-full right-0 mt-2 w-[220px] bg-white border border-slate-200 rounded-2xl shadow-2xl p-5 z-50 text-left rtl:text-right">
               <div className="flex items-center justify-between mb-3">
                 <h3 className="text-sm font-bold text-slate-800">{t("Quick Search")}</h3>
-                <button aria-label="okay" onClick={() => setActiveModal(null)} className="text-slate-600 hover:text-slate-600 text-xs cursor-pointer">✕</button>
+                <button aria-label=" quick search" onClick={() => setActiveModal(null)} className="text-slate-600 hover:text-slate-600 text-xs cursor-pointer">✕</button>
               </div>
               <div className="space-y-3">
                 <div className="border border-slate-200 rounded-xl p-2.5 flex items-center gap-2 bg-slate-50">
@@ -438,7 +438,7 @@ const [priceLimit, setPriceLimit] = useState(150);
                   <input type="text" placeholder={t("Search hotels, keywords...")} className="bg-transparent text-xs w-full outline-none text-slate-800" autoFocus />
                 </div>
                 <button 
-                aria-label="okay"
+                aria-label="apply"
                   onClick={() => setActiveModal(null)}
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-xl text-xs font-bold shadow-md transition-colors cursor-pointer"
                 >
@@ -458,21 +458,25 @@ const [priceLimit, setPriceLimit] = useState(150);
           <div className="lg:col-span-3 space-y-6">
             <h2 className="text-base font-bold text-slate-800">{t("Filter by")}</h2>
 
-
 {/* السعر لكل ليلة */}
 <div className="border-b border-slate-100 pb-6 pr-2" dir={isRtl ? "rtl" : "ltr"}>
   <span className="text-xs font-bold text-slate-700 block mb-2">{t("Price per night")}</span>
   
   <Slider
-    value={priceLimit}
+    // في حالة العربي نعكس القيمة رياضيّاً لتبدأ من اليمين ($10) وتتجه لليسار
+    value={isRtl ? (310 - priceLimit) : priceLimit}
     min={10}
     max={300}
-    onChange={(e, newValue) => setPriceLimit(newValue)}
+    onChange={(e, newValue) => {
+      // إعادة القيمة لحقيقتها عند السحب في العربي
+      const actualVal = isRtl ? (310 - newValue) : newValue;
+      setPriceLimit(actualVal);
+    }}
     sx={{
       color: '#2563EB',
       height: 4,
       padding: '13px 0',
-      // انعكاس بصري فقط ليصبح $10 يميناً و$300 يساراً في العربي
+      // انعكاس بصري للسلايدر حصراً في العربي ليصبح الطرف الأيمن هو البداية
       transform: isRtl ? 'scaleX(-1)' : 'none',
       '& .MuiSlider-thumb': {
         height: 14,
@@ -498,14 +502,12 @@ const [priceLimit, setPriceLimit] = useState(150);
     }}
   />
 
-  {/* الأرقام تحت السلايدر: $10 على اليمين و ${priceLimit} على اليسار بالعربي */}
-  <div className={`flex justify-between text-xs text-blue-600 font-semibold mt-1 ${isRtl ? 'flex-row-reverse' : ''}`}>
+  {/* الأرقام تحت السلايدر: بفضل dir="rtl" ستكون $10 على اليمين تماماً والسعر المتغير على اليسار */}
+  <div className="flex justify-between text-xs text-blue-600 font-semibold mt-1">
     <span>$10</span>
     <span>${priceLimit}</span>
   </div>
 </div>
-
-
             {/* تقييم النزلاء (تم تحويله إلى checkbox تماماً مثل باقي الخيارات) */}
             <div className="border-b border-slate-100 pb-6">
               <span className="text-xs font-bold text-slate-700 block mb-3">{t("Guest rating")}</span>

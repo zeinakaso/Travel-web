@@ -83,7 +83,7 @@ export default function SectionFour() {
                 {t("Show all the packages,\n view now")}
               </h2>
               <br />
-              <p className="text-blue-100 text-xs md:text-sm font-medium">
+              <p className="text-blue-900 text-xs md:text-sm font-medium">
                 {t("Discover dream destinations")}
               </p>
             </div>

@@ -126,7 +126,7 @@ export default function SearchCard() {
                   ? "bg-[#EEF4FF] text-[#2A6CFF]"
                   : "text-slate-700 hover:text-slate-900"
               }`}
-              aria-label="okay"
+              aria-label=" flight"
             >
               <FlightTakeoffIcon
                 sx={{
@@ -145,7 +145,7 @@ export default function SearchCard() {
                   ? "bg-[#EEF4FF] text-[#2A6CFF]"
                   : "text-slate-700 hover:text-slate-900"
               }`}
-              aria-label="okay"
+              aria-label="hotel"
             >
               <HotelIcon
                 sx={{
@@ -164,7 +164,7 @@ export default function SearchCard() {
                   ? "bg-[#EEF4FF] text-[#2A6CFF]"
                   : "text-slate-700 hover:text-slate-900"
               }`}
-              aria-label="okay"
+              aria-label="visa"
             >
               <CardTravelIcon
                 sx={{
@@ -189,7 +189,7 @@ export default function SearchCard() {
                 className="border border-[#4C82F6] rounded-xl px-4 py-3 bg-white flex items-center justify-between h-[52px] cursor-pointer hover:border-blue-500 transition-colors"
               >
                 <div className="flex items-center w-full overflow-hidden gap-2">
-                  <span className="text-sm font-medium text-slate-500 whitespace-nowrap">
+                  <span className="text-sm font-medium text-slate-600 whitespace-nowrap">
                     {t("Going to")}:
                   </span>
                   <span className="text-[#2A6CFF] font-bold text-base truncate">
@@ -202,34 +202,52 @@ export default function SearchCard() {
                 />
               </div>
 
-              {/* القائمة المنسدلة لاختيار الدولة */}
+              {/* القائمة المنسدلة لاختيار الدولة (محسّنة للموبايل والكمبيوتر) */}
               {openDropdown === "destination" && (
-                <div className="absolute top-full left-0 right-0 mt-1.5 bg-white rounded-xl shadow-2xl border border-slate-100 z-50 max-h-48 overflow-y-auto p-1.5 animate-in fade-in zoom-in duration-150">
-                  {countries.map((c) => (
-                    <div
-                      key={c}
-                      onClick={() => {
-                        setDestination(c);
-                        setOpenDropdown(null);
-                      }}
-                      className={`flex items-center gap-2 px-3.5 py-2.5 text-xs rounded-lg cursor-pointer transition-colors ${
-                        destination === c
-                          ? "bg-blue-50 text-[#2A6CFF] font-bold"
-                          : "text-slate-700 hover:bg-slate-50"
-                      }`}
-                    >
-                      <LocationOnIcon
-                        sx={{ fontSize: 16 }}
-                        className={
-                          destination === c
-                            ? "text-[#2A6CFF]"
-                            : "text-slate-600"
-                        }
-                      />
-                      <span>{t(c)}</span>
+                <>
+                  {/* خلفية معتمة للموبايل لحظر التشتيت */}
+                  <div
+                    className="fixed inset-0 bg-black/40 z-40 md:hidden"
+                    onClick={() => setOpenDropdown(null)}
+                  />
+                  <div className="fixed md:absolute inset-x-4 bottom-4 md:inset-auto md:top-full md:left-0 md:right-0 md:mt-1.5 bg-white rounded-2xl md:rounded-xl shadow-2xl border border-slate-100 z-50 max-h-[60vh] md:max-h-48 overflow-y-auto p-2 animate-in fade-in slide-in-from-bottom-5 md:slide-in-from-top-2 duration-200">
+                    <div className="flex justify-between items-center p-2 md:hidden border-b border-slate-100 mb-1">
+                      <span className="font-bold text-slate-800 text-sm">
+                        {t("Going to")}
+                      </span>
+                      <button
+                        onClick={() => setOpenDropdown(null)}
+                        className="text-slate-500 font-bold text-sm px-2"
+                      >
+                        ✕
+                      </button>
                     </div>
-                  ))}
-                </div>
+                    {countries.map((c) => (
+                      <div
+                        key={c}
+                        onClick={() => {
+                          setDestination(c);
+                          setOpenDropdown(null);
+                        }}
+                        className={`flex items-center gap-2.5 px-3.5 py-3 md:py-2.5 text-xs sm:text-sm rounded-xl cursor-pointer transition-colors ${
+                          destination === c
+                            ? "bg-blue-50 text-[#2A6CFF] font-bold"
+                            : "text-slate-700 hover:bg-slate-50 active:bg-slate-100"
+                        }`}
+                      >
+                        <LocationOnIcon
+                          sx={{ fontSize: 18 }}
+                          className={
+                            destination === c
+                              ? "text-[#2A6CFF]"
+                              : "text-slate-600"
+                          }
+                        />
+                        <span>{t(c)}</span>
+                      </div>
+                    ))}
+                  </div>
+                </>
               )}
             </div>
 
@@ -241,7 +259,7 @@ export default function SearchCard() {
                   onClick={() =>
                     setOpenDropdown(openDropdown === "dates" ? null : "dates")
                   }
-                  className="border border-[#4C82F6] rounded-xl px-3.5 py-2.5 bg-white flex items-center justify-between cursor-pointer h-[54px] hover:border-blue-500 transition-colors"
+                  className="border border-[#4C82F6] rounded-xl px-3 sm:px-3.5 py-2.5 bg-white flex items-center justify-between cursor-pointer h-[54px] hover:border-blue-500 transition-colors"
                 >
                   <div className="overflow-hidden">
                     <span className="block text-[11px] text-slate-600 font-medium leading-none mb-1">
@@ -260,37 +278,55 @@ export default function SearchCard() {
 
                 {/* النافذة المنسدلة للتواريخ */}
                 {openDropdown === "dates" && (
-                  <div className="absolute top-full left-0 w-[240px] sm:w-[260px] mt-1.5 bg-white rounded-2xl shadow-2xl border border-slate-100 z-50 p-4 space-y-3 animate-in fade-in duration-150">
-                    <div>
-                      <label className="block text-[10px] font-bold text-slate-600 mb-1">
-                        {t("CHECK-IN")}
-                      </label>
-                      <input
-                        type="date"
-                        value={checkInDate}
-                        onChange={(e) => setCheckInDate(e.target.value)}
-                        className="w-full text-xs font-semibold text-slate-700 border border-slate-200 rounded-lg p-2 focus:outline-none focus:border-blue-500"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[10px] font-bold text-slate-600 mb-1">
-                        {t("CHECK-OUT")}
-                      </label>
-                      <input
-                        type="date"
-                        value={checkOutDate}
-                        onChange={(e) => setCheckOutDate(e.target.value)}
-                        className="w-full text-xs font-semibold text-slate-700 border border-slate-200 rounded-lg p-2 focus:outline-none focus:border-blue-500"
-                      />
-                    </div>
-                    <button
-                      aria-label="okay"
+                  <>
+                    {/* خلفية مظللة للموبايل */}
+                    <div
+                      className="fixed inset-0 bg-black/40 z-40 md:hidden"
                       onClick={() => setOpenDropdown(null)}
-                      className="w-full bg-[#2A6CFF] text-white text-xs font-bold py-2 rounded-lg cursor-pointer hover:bg-blue-700 transition-colors"
-                    >
-                      {t("Done")}
-                    </button>
-                  </div>
+                    />
+                    <div className="fixed md:absolute inset-x-4 bottom-4 md:inset-auto md:top-full md:left-0 md:w-[280px] md:mt-1.5 bg-white rounded-2xl shadow-2xl border border-slate-100 z-50 p-4 space-y-3.5 animate-in fade-in slide-in-from-bottom-5 md:slide-in-from-top-2 duration-200">
+                      <div className="flex justify-between items-center md:hidden border-b border-slate-100 pb-2">
+                        <span className="font-bold text-slate-800 text-sm">
+                          {t("Check in-out")}
+                        </span>
+                        <button
+                          onClick={() => setOpenDropdown(null)}
+                          className="text-slate-500 font-bold text-sm px-2"
+                        >
+                          ✕
+                        </button>
+                      </div>
+                      <div>
+                        <label className="block text-[11px] font-bold text-slate-600 mb-1.5">
+                          {t("CHECK-IN")}
+                        </label>
+                        <input
+                          type="date"
+                          value={checkInDate}
+                          onChange={(e) => setCheckInDate(e.target.value)}
+                          className="w-full text-xs sm:text-sm font-semibold text-slate-700 border border-slate-200 rounded-xl p-2.5 focus:outline-none focus:border-blue-500 bg-slate-50/50"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[11px] font-bold text-slate-600 mb-1.5">
+                          {t("CHECK-OUT")}
+                        </label>
+                        <input
+                          type="date"
+                          value={checkOutDate}
+                          onChange={(e) => setCheckOutDate(e.target.value)}
+                          className="w-full text-xs sm:text-sm font-semibold text-slate-700 border border-slate-200 rounded-xl p-2.5 focus:outline-none focus:border-blue-500 bg-slate-50/50"
+                        />
+                      </div>
+                      <button
+                        aria-label="Done selecting dates"
+                        onClick={() => setOpenDropdown(null)}
+                        className="w-full bg-[#2A6CFF] text-white text-xs sm:text-sm font-bold py-2.5 rounded-xl cursor-pointer hover:bg-blue-700 active:scale-[0.98] transition-all"
+                      >
+                        {t("Done")}
+                      </button>
+                    </div>
+                  </>
                 )}
               </div>
 
@@ -302,7 +338,7 @@ export default function SearchCard() {
                       openDropdown === "travelers" ? null : "travelers",
                     )
                   }
-                  className="border border-[#4C82F6] rounded-xl px-3.5 py-2.5 bg-white flex items-center justify-between cursor-pointer h-[54px] hover:border-blue-500 transition-colors"
+                  className="border border-[#4C82F6] rounded-xl px-3 sm:px-3.5 py-2.5 bg-white flex items-center justify-between cursor-pointer h-[54px] hover:border-blue-500 transition-colors"
                 >
                   <div className="overflow-hidden">
                     <span className="block text-[11px] text-slate-600 font-medium leading-none mb-1">
@@ -321,88 +357,109 @@ export default function SearchCard() {
 
                 {/* النافذة المنسدلة للعدادات */}
                 {openDropdown === "travelers" && (
-                  <div className="absolute top-full right-0 w-[220px] mt-1.5 bg-white rounded-2xl shadow-2xl border border-slate-100 z-50 p-4 space-y-4 animate-in fade-in duration-150">
-                    {/* عداد الغرف */}
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <span className="text-xs font-bold text-slate-700 block">
-                          {t("Rooms")}
-                        </span>
-                        <span className="text-[10px] text-slate-600">
-                          {t("Number of rooms")}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <button
-                          aria-label="okay"
-                          onClick={() =>
-                            setRoomsCount(Math.max(1, roomsCount - 1))
-                          }
-                          className="w-6 h-6 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-100 cursor-pointer"
-                        >
-                          <RemoveIcon sx={{ fontSize: 12 }} />
-                        </button>
-                        <span className="text-xs font-bold text-slate-800">
-                          {roomsCount}
-                        </span>
-                        <button
-                          aria-label="okay"
-                          onClick={() => setRoomsCount(roomsCount + 1)}
-                          className="w-6 h-6 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-100 cursor-pointer"
-                        >
-                          <AddIcon sx={{ fontSize: 12 }} />
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* عداد المسافرين */}
-                    <div className="flex items-center justify-between border-t border-slate-100 pt-3">
-                      <div>
-                        <span className="text-xs font-bold text-slate-700 block">
+                  <>
+                    {/* خلفية مظللة للموبايل */}
+                    <div
+                      className="fixed inset-0 bg-black/40 z-40 md:hidden"
+                      onClick={() => setOpenDropdown(null)}
+                    />
+                    <div className="fixed md:absolute inset-x-4 bottom-4 md:inset-auto md:top-full md:right-0 md:w-[260px] md:mt-1.5 bg-white rounded-2xl shadow-2xl border border-slate-100 z-50 p-4 space-y-4 animate-in fade-in slide-in-from-bottom-5 md:slide-in-from-top-2 duration-200">
+                      <div className="flex justify-between items-center md:hidden border-b border-slate-100 pb-2">
+                        <span className="font-bold text-slate-800 text-sm">
                           {t("Travelers")}
                         </span>
-                        <span className="text-[10px] text-slate-600">
-                          {t("Adults & kids")}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2">
                         <button
-                          aria-label="okay"
-                          onClick={() =>
-                            setTravelersCount(Math.max(1, travelersCount - 1))
-                          }
-                          className="w-6 h-6 rounded-full border border-slate-200 flex items-center justify-center wtext-slate-600 hover:bg-slate-100 cursor-pointer"
+                          onClick={() => setOpenDropdown(null)}
+                          className="text-slate-500 font-bold text-sm px-2"
                         >
-                          <RemoveIcon sx={{ fontSize: 12 }} />
-                        </button>
-                        <span className="text-xs font-bold text-slate-800">
-                          {travelersCount}
-                        </span>
-                        <button
-                          aria-label="okay"
-                          onClick={() => setTravelersCount(travelersCount + 1)}
-                          className="w-6 h-6 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-100 cursor-pointer"
-                        >
-                          <AddIcon sx={{ fontSize: 12 }} />
+                          ✕
                         </button>
                       </div>
-                    </div>
 
-                    <button
-                      aria-label="okay"
-                      onClick={() => setOpenDropdown(null)}
-                      className="w-full bg-[#2A6CFF] text-white text-xs font-bold py-2 rounded-lg cursor-pointer hover:bg-blue-700 transition-colors"
-                    >
-                      {t("Apply")}
-                    </button>
-                  </div>
+                      {/* عداد الغرف */}
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <span className="text-xs sm:text-sm font-bold text-slate-700 block">
+                            {t("Rooms")}
+                          </span>
+                          <span className="text-[10px] sm:text-xs text-slate-600">
+                            {t("Number of rooms")}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2.5">
+                          <button
+                            aria-label="Decrease rooms count"
+                            onClick={() =>
+                              setRoomsCount(Math.max(1, roomsCount - 1))
+                            }
+                            className="w-7 h-7 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-100 active:scale-95 cursor-pointer"
+                          >
+                            <RemoveIcon sx={{ fontSize: 14 }} />
+                          </button>
+                          <span className="text-xs sm:text-sm font-bold text-slate-800 w-4 text-center">
+                            {roomsCount}
+                          </span>
+                          <button
+                            aria-label="Increase rooms count"
+                            onClick={() => setRoomsCount(roomsCount + 1)}
+                            className="w-7 h-7 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-100 active:scale-95 cursor-pointer"
+                          >
+                            <AddIcon sx={{ fontSize: 14 }} />
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* عداد المسافرين */}
+                      <div className="flex items-center justify-between border-t border-slate-100 pt-3.5">
+                        <div>
+                          <span className="text-xs sm:text-sm font-bold text-slate-700 block">
+                            {t("Travelers")}
+                          </span>
+                          <span className="text-[10px] sm:text-xs text-slate-600">
+                            {t("Adults & kids")}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2.5">
+                          <button
+                            aria-label="Decrease travelers count"
+                            onClick={() =>
+                              setTravelersCount(Math.max(1, travelersCount - 1))
+                            }
+                            className="w-7 h-7 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-100 active:scale-95 cursor-pointer"
+                          >
+                            <RemoveIcon sx={{ fontSize: 14 }} />
+                          </button>
+                          <span className="text-xs sm:text-sm font-bold text-slate-800 w-4 text-center">
+                            {travelersCount}
+                          </span>
+                          <button
+                            aria-label="Increase travelers count"
+                            onClick={() =>
+                              setTravelersCount(travelersCount + 1)
+                            }
+                            className="w-7 h-7 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-100 active:scale-95 cursor-pointer"
+                          >
+                            <AddIcon sx={{ fontSize: 14 }} />
+                          </button>
+                        </div>
+                      </div>
+
+                      <button
+                        aria-label="Apply travelers selection"
+                        onClick={() => setOpenDropdown(null)}
+                        className="w-full bg-[#2A6CFF] text-white text-xs sm:text-sm font-bold py-2.5 rounded-xl cursor-pointer hover:bg-blue-700 active:scale-[0.98] transition-all"
+                      >
+                        {t("Apply")}
+                      </button>
+                    </div>
+                  </>
                 )}
               </div>
             </div>
 
             {/* زر Find Now الأزرق Zesty المميز */}
             <button
-              aria-label="okay"
+              aria-label="Find Now search"
               onClick={() => {
                 alert(
                   `Searching for ${activeTab} in ${destination} from ${checkInDate} to ${checkOutDate} for ${travelersCount} travelers (${roomsCount} room)`,
@@ -413,6 +470,9 @@ export default function SearchCard() {
               {t("Find Now")}
             </button>
           </div>
+
+
+          
         </div>
       </div>
     </div>

@@ -149,7 +149,7 @@ export default function SectionTwo() {
             {/* زر View Details */}
             <div className="pt-2 flex justify-center lg:justify-start rtl:lg:justify-start">
               <button 
-              aria-label="okay"
+              aria-label="View Details"
               className="px-8 py-3 rounded-lg border border-[#26BBFD] text-[#26BBFD] hover:bg-[#26BBFD] hover:text-white active:scale-95 transition-all duration-300 text-sm font-semibold cursor-pointer">
                 {t("View Details")}
               </button>
@@ -181,7 +181,7 @@ export default function SectionTwo() {
         
         {/* زر PREVIOUS (السابق) */}
         <button
-        aria-label="okay"
+        aria-label="previos"
           onClick={handlePrev}
           className="flex items-center gap-2 text-[#26BBFD] hover:opacity-80 transition-opacity cursor-pointer group"
         >
@@ -204,7 +204,7 @@ export default function SectionTwo() {
 
         {/* زر NEXT (التالي) */}
         <button
-        aria-label="okay"
+        aria-label="next"
           onClick={handleNext}
           className="flex items-center gap-2 text-[#26BBFD] hover:opacity-80 transition-opacity cursor-pointer group"
         >
