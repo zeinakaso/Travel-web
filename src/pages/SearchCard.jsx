@@ -13,7 +13,7 @@ import p2 from "../assets/Rectangle.webp";
 import p22 from "../assets/Group.webp";
 
 // translation
-import '../i18n';
+import "../i18n";
 import { useTranslation } from "react-i18next";
 
 export default function SearchCard() {
@@ -78,6 +78,8 @@ export default function SearchCard() {
           src={p22}
           loading="lazy"
           alt="Wave Background"
+          width="1335"
+          height="300"
           className="w-full h-auto object-cover block min-h-[40px]"
         />
       </div>
@@ -181,7 +183,7 @@ export default function SearchCard() {
               <div
                 onClick={() =>
                   setOpenDropdown(
-                    openDropdown === "destination" ? null : "destination"
+                    openDropdown === "destination" ? null : "destination",
                   )
                 }
                 className="border border-[#4C82F6] rounded-xl px-4 py-3 bg-white flex items-center justify-between h-[52px] cursor-pointer hover:border-blue-500 transition-colors"
@@ -219,7 +221,9 @@ export default function SearchCard() {
                       <LocationOnIcon
                         sx={{ fontSize: 16 }}
                         className={
-                          destination === c ? "text-[#2A6CFF]" : "text-slate-600"
+                          destination === c
+                            ? "text-[#2A6CFF]"
+                            : "text-slate-600"
                         }
                       />
                       <span>{t(c)}</span>
@@ -280,7 +284,7 @@ export default function SearchCard() {
                       />
                     </div>
                     <button
-                    aria-label="okay"
+                      aria-label="okay"
                       onClick={() => setOpenDropdown(null)}
                       className="w-full bg-[#2A6CFF] text-white text-xs font-bold py-2 rounded-lg cursor-pointer hover:bg-blue-700 transition-colors"
                     >
@@ -295,7 +299,7 @@ export default function SearchCard() {
                 <div
                   onClick={() =>
                     setOpenDropdown(
-                      openDropdown === "travelers" ? null : "travelers"
+                      openDropdown === "travelers" ? null : "travelers",
                     )
                   }
                   className="border border-[#4C82F6] rounded-xl px-3.5 py-2.5 bg-white flex items-center justify-between cursor-pointer h-[54px] hover:border-blue-500 transition-colors"
@@ -305,7 +309,8 @@ export default function SearchCard() {
                       {t("Travelers")}
                     </span>
                     <span className="text-[#2A6CFF] font-bold text-xs sm:text-sm truncate block">
-                      {roomsCount} {t("room").toLowerCase()}, {travelersCount} {t("travelers").toLowerCase()}
+                      {roomsCount} {t("room").toLowerCase()}, {travelersCount}{" "}
+                      {t("travelers").toLowerCase()}
                     </span>
                   </div>
                   <KeyboardArrowDownIcon
@@ -329,7 +334,7 @@ export default function SearchCard() {
                       </div>
                       <div className="flex items-center gap-2">
                         <button
-                        aria-label="okay"
+                          aria-label="okay"
                           onClick={() =>
                             setRoomsCount(Math.max(1, roomsCount - 1))
                           }
@@ -341,7 +346,7 @@ export default function SearchCard() {
                           {roomsCount}
                         </span>
                         <button
-                        aria-label="okay"
+                          aria-label="okay"
                           onClick={() => setRoomsCount(roomsCount + 1)}
                           className="w-6 h-6 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-100 cursor-pointer"
                         >
@@ -362,7 +367,7 @@ export default function SearchCard() {
                       </div>
                       <div className="flex items-center gap-2">
                         <button
-                        aria-label="okay"
+                          aria-label="okay"
                           onClick={() =>
                             setTravelersCount(Math.max(1, travelersCount - 1))
                           }
@@ -374,7 +379,7 @@ export default function SearchCard() {
                           {travelersCount}
                         </span>
                         <button
-                        aria-label="okay"
+                          aria-label="okay"
                           onClick={() => setTravelersCount(travelersCount + 1)}
                           className="w-6 h-6 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-100 cursor-pointer"
                         >
@@ -384,7 +389,7 @@ export default function SearchCard() {
                     </div>
 
                     <button
-                    aria-label="okay"
+                      aria-label="okay"
                       onClick={() => setOpenDropdown(null)}
                       className="w-full bg-[#2A6CFF] text-white text-xs font-bold py-2 rounded-lg cursor-pointer hover:bg-blue-700 transition-colors"
                     >
@@ -397,10 +402,10 @@ export default function SearchCard() {
 
             {/* زر Find Now الأزرق Zesty المميز */}
             <button
-            aria-label="okay"
+              aria-label="okay"
               onClick={() => {
                 alert(
-                  `Searching for ${activeTab} in ${destination} from ${checkInDate} to ${checkOutDate} for ${travelersCount} travelers (${roomsCount} room)`
+                  `Searching for ${activeTab} in ${destination} from ${checkInDate} to ${checkOutDate} for ${travelersCount} travelers (${roomsCount} room)`,
                 );
               }}
               className="w-full bg-[#2A6CFF] hover:bg-blue-600 text-white font-bold py-3.5 rounded-xl shadow-xs transition duration-200 mt-2 text-sm md:text-base cursor-pointer active:scale-[0.99]"
