@@ -63,12 +63,7 @@ export default function VisaRequirements() {
       image: ukImg,
       flag: ukFlag,
     },
-    {
-      id: 6,
-      title: "Germany",
-      image: germanyImg,
-      flag: germanyFlag,
-    },
+    
   ];
 
   return (
@@ -146,7 +141,11 @@ export default function VisaRequirements() {
 
               {/* عنوان اسم الدولة تحت الكارد */}
               <div className="mt-2.5 mb-2 px-0.5">
-                <h3 className="text-gray-800 text-sm font-bold tracking-wide group-hover:text-sky-600 transition-colors">
+                <h3 className="text-gray-800 text-sm  tracking-wide group-hover:text-sky-600 transition-colors"
+                 
+                 style={{fontWeight:"500"}}
+                
+                >
                   {t(card.title)}
                 </h3>
               </div>

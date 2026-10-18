@@ -35,6 +35,8 @@ import Rating from "@mui/material/Rating";
 import "../i18n";
 import { useTranslation } from "react-i18next";
 
+import { Helmet } from 'react-helmet-async';
+
 export default function HotelDetails() {
   const { t, i18n } = useTranslation();
 
@@ -77,6 +79,13 @@ export default function HotelDetails() {
     guests: "2 Adults, 1 Child",
   });
 
+
+  // إذا كنت تستخدم مكتبة الترجمة i18next:
+// const { i18n } = useTranslation();
+const isRtl = i18n.language === "ar";
+
+// أو إذا كنت تعتمد على متغير isArabic القديم لديك، يمكنك توحيده هكذا:
+// const isRtl = isArabic;
   // حالة لتحديد المربع المفتوح حالياً (إما null أو 'checkIn' أو 'checkOut')
   const [activeDatePicker, setActiveDatePicker] = useState(null);
 
@@ -93,6 +102,7 @@ export default function HotelDetails() {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
+      document.title = `${t("HotelVeiw")}`;
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -201,6 +211,11 @@ export default function HotelDetails() {
 
   return (
     <div className="w-full bg-white font-sans pb-20 relative">
+
+
+         <Helmet>
+               <title>{t("HotelVeiw")} </title>
+             </Helmet>
       {/* --- 1. معرض الصور العلوي (Gallery) --- */}
       <div className="max-w-7xl mx-auto px-6 pt-6 grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* الصورة الرئيسية الكبيرة على اليسار */}
@@ -1333,30 +1348,78 @@ export default function HotelDetails() {
             </div>
 
             <form onSubmit={handleAddReview} className="space-y-4">
+
+
               {/* النجوم التفاعلية */}
-              <div className="flex items-center justify-start rtl:justify-end">
-                <Rating
-                  name="half-rating-interactive"
-                  value={userRating}
-                  precision={0.5}
-                  onChange={(event, newValue) => {
-                    if (newValue !== null) setUserRating(newValue);
-                  }}
-                  onChangeActive={(event, newHover) => {
-                    setHoverRating(newHover);
-                  }}
-                  size="large"
-                  icon={
-                    <StarIcon fontSize="inherit" style={{ color: "#f59e0b" }} />
-                  }
-                  emptyIcon={
-                    <StarIcon style={{ opacity: 0.3 }} fontSize="inherit" />
-                  }
-                  sx={{
-                    fontSize: "32px",
-                  }}
-                />
-              </div>
+
+
+{/* Interactive Rating - Arabic & English */}
+<div
+  dir={isRtl ? "rtl" : "ltr"}
+  className="flex flex-col items-start"
+>
+  <div dir="ltr">
+    <Rating
+      name="half-rating-interactive"
+      value={userRating}
+      precision={0.5}
+      onChange={(event, newValue) => {
+        if (newValue !== null) {
+          setUserRating(newValue);
+        }
+      }}
+      onChangeActive={(event, newHover) => {
+        setHoverRating(newHover);
+      }}
+      size="large"
+      icon={
+        <StarIcon
+          fontSize="inherit"
+          sx={{ color: "#F59E0B" }}
+        />
+      }
+      emptyIcon={
+        <StarIcon
+          fontSize="inherit"
+          sx={{ color: "#CBD5E1" }}
+        />
+      }
+      sx={{
+        fontSize: "32px",
+        direction: "ltr",
+
+        "& .MuiRating-iconEmpty": {
+          color: "#CBD5E1",
+        },
+
+        "& .MuiRating-iconFilled": {
+          color: "#F59E0B",
+        },
+
+        "& .MuiRating-iconHover": {
+          color: "#F59E0B",
+        },
+
+        "& .MuiRating-icon": {
+          transition: "color 0.15s ease",
+        },
+      }}
+    />
+  </div>
+
+  <div
+    dir={isRtl ? "rtl" : "ltr"}
+    className="mt-2 flex items-center gap-2 text-sm"
+  >
+    <span className="font-bold text-amber-500" dir="ltr">
+      {hoverRating !== -1 ? hoverRating : userRating}
+    </span>
+
+    <span className="text-slate-500">
+      {t("out of 5")}
+    </span>
+  </div>
+</div>
 
               {/* حقل إدخال التعليق */}
               <div>

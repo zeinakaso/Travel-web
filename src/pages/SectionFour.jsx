@@ -32,7 +32,7 @@ export default function SectionFour() {
             </div>
             <div className="mt-3">
               <h3 className="text-gray-900 text-sm font-bold">{t("Extended Stay")}</h3>
-              <p className="text-gray-600 text-xs mt-1 leading-relaxed">
+              <p className="text-gray-600 text-l mt-1 leading-relaxed">
                 {t("Your request has been completed, please go to your request.")}
               </p>
             </div>
@@ -45,7 +45,7 @@ export default function SectionFour() {
             </div>
             <div className="mt-3">
               <h3 className="text-gray-900 text-sm font-bold">{t("New year, new adventure")}</h3>
-              <p className="text-gray-600 text-xs mt-1 leading-relaxed">
+              <p className="text-gray-600 text-l mt-1 leading-relaxed">
                 {t("Your request has been completed, please go to your request.")}
               </p>
             </div>
@@ -58,7 +58,7 @@ export default function SectionFour() {
             </div>
             <div className="mt-3">
               <h3 className="text-gray-900 text-sm font-bold">{t("Extended Stay")}</h3>
-              <p className="text-gray-600 text-xs mt-1 leading-relaxed">
+              <p className="text-gray-600 text-l mt-1 leading-relaxed">
                 {t("Your request has been completed, please go to your request.")}
               </p>
             </div>
@@ -83,7 +83,7 @@ export default function SectionFour() {
                 {t("Show all the packages,\n view now")}
               </h2>
               <br />
-              <p className="text-blue-900 text-xs md:text-sm font-medium">
+              <p className="text-white text-xl md:text-sm font-medium">
                 {t("Discover dream destinations")}
               </p>
             </div>
