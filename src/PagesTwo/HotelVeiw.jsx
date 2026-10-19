@@ -149,7 +149,7 @@ const isRtl = i18n.language === "ar";
   }, [reviewsList]);
 
 
-  
+
   // مراجع (Refs) للوصول للأقسام عند الضغط على الأزرار
   const overviewRef = useRef(null);
   const roomsRef = useRef(null);
@@ -337,130 +337,120 @@ const isRtl = i18n.language === "ar";
       </div>
 
       {/* --- 3. قسم Overview الرئيسي (معلومات الفندق + المميزات + الخريطة) --- */}
-      <div
-        ref={overviewRef}
-        className="max-w-7xl mx-auto px-6 mt-10 space-y-10"
-      >
-        {/* اسم الفندق والتقييم */}
-        <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-            {t("My Cloud Transit Hotel")}
-          </h1>
-          <div className="flex items-center gap-2 text-sm text-gray-700 mb-1">
-            <span className="font-semibold">4.5</span>
-            <StarIcon className="text-amber-400 text-base" />
-          </div>
-          <p className="text-sm text-gray-500">4.2/5 {t("Very Good")}</p>
-          <p className="text-xs text-gray-600 mt-1">
-            {t("Guests rated this property 4.0/5 for cleanliness.")}
-          </p>
+      {/* --- 3. قسم Overview الرئيسي (معلومات الفندق + المميزات + الخريطة) --- */}
+<div
+  ref={overviewRef}
+  className="max-w-7xl mx-auto px-6 mt-10 space-y-10"
+>
+  {/* اسم الفندق والتقييم */}
+  <div>
+    <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+      {t("My Cloud Transit Hotel")}
+    </h1>
+    <div className="flex items-center gap-2 text-sm text-gray-700 mb-1">
+      <span className="font-semibold">4.5</span>
+      <StarIcon className="text-amber-400 text-base" />
+    </div>
+    <p className="text-sm text-gray-500">4.2/5 {t("Very Good")}</p>
+    <p className="text-xs text-gray-600 mt-1">
+      {t("Guests rated this property 4.0/5 for cleanliness.")}
+    </p>
+  </div>
+
+  {/* قسم المميزات (Features) والخريطة (Location) */}
+  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    {/* الميزات (Features) */}
+    <div className="lg:col-span-7">
+      <h3 className="text-lg font-bold text-gray-900 mb-5">
+        {t("Features")}
+      </h3>
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-5 text-sm text-gray-600">
+        <div className="flex items-center gap-3">
+          <WifiIcon className="text-blue-500 text-base" />{" "}
+          {t("Free WiFi")}
+        </div>
+        <div className="flex items-center gap-3">
+          <CheckIcon className="text-blue-500 text-base" />{" "}
+          {t("Housekeeping")}
+        </div>
+        <div className="flex items-center gap-3">
+          <PetsIcon className="text-blue-500 text-base" />{" "}
+          {t("Pet friendly")}
         </div>
 
-        {/* قسم المميزات (Features) والخريطة (Location) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* الميزات (Features) */}
-          {/* الميزات (Features) */}
-          <div className="lg:col-span-7">
-            <h3 className="text-lg font-bold text-gray-900 mb-5">
-              {t("Features")}
-            </h3>
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-5 text-sm text-gray-600">
-              <div className="flex items-center gap-3">
-                <WifiIcon className="text-blue-500 text-base" />{" "}
-                {t("Free WiFi")}
-              </div>
-              <div className="flex items-center gap-3">
-                <CheckIcon className="text-blue-500 text-base" />{" "}
-                {t("Housekeeping")}
-              </div>
-              <div className="flex items-center gap-3">
-                <PetsIcon className="text-blue-500 text-base" />{" "}
-                {t("Pet friendly")}
-              </div>
+        <div className="flex items-center gap-3">
+          <AcUnitIcon className="text-blue-500 text-base" />{" "}
+          {t("Air conditioning")}
+        </div>
+        <div className="flex items-center gap-3">
+          <SupportAgentIcon className="text-blue-500 text-base" />{" "}
+          {t("24/7 front desk")}
+        </div>
+        <div className="flex items-center gap-3">
+          <RestaurantIcon className="text-blue-500 text-base" />{" "}
+          {t("Breakfast available")}
+        </div>
 
-              <div className="flex items-center gap-3">
-                <AcUnitIcon className="text-blue-500 text-base" />{" "}
-                {t("Air conditioning")}
-              </div>
-              <div className="flex items-center gap-3">
-                <SupportAgentIcon className="text-blue-500 text-base" />{" "}
-                {t("24/7 front desk")}
-              </div>
-              <div className="flex items-center gap-3">
-                <RestaurantIcon className="text-blue-500 text-base" />{" "}
-                {t("Breakfast available")}
-              </div>
+        <div className="flex items-center gap-3">
+          <WifiIcon className="text-blue-500 text-base" />{" "}
+          {t("Free WiFi")}
+        </div>
+        <div className="flex items-center gap-3">
+          <CheckIcon className="text-blue-500 text-base" />{" "}
+          {t("Housekeeping")}
+        </div>
+        <div className="flex items-center gap-3">
+          <PetsIcon className="text-blue-500 text-base" />{" "}
+          {t("Pet friendly")}
+        </div>
 
-              <div className="flex items-center gap-3">
-                <WifiIcon className="text-blue-500 text-base" />{" "}
-                {t("Free WiFi")}
-              </div>
-              <div className="flex items-center gap-3">
-                <CheckIcon className="text-blue-500 text-base" />{" "}
-                {t("Housekeeping")}
-              </div>
-              <div className="flex items-center gap-3">
-                <PetsIcon className="text-blue-500 text-base" />{" "}
-                {t("Pet friendly")}
-              </div>
-
-              <div className="flex items-center gap-3">
-                <AcUnitIcon className="text-blue-500 text-base" />{" "}
-                {t("Air conditioning")}
-              </div>
-              <div className="flex items-center gap-3">
-                <SupportAgentIcon className="text-blue-500 text-base" />{" "}
-                {t("24/7 front desk")}
-              </div>
-              <div className="flex items-center gap-3">
-                <RestaurantIcon className="text-blue-500 text-base" />{" "}
-                {t("Breakfast available")}
-              </div>
-            </div>
-          </div>
-
-          {/* الخريطة المصغرة (Location Box) */}
-          <div
-            style={{ width: "555px" }}
-            className="lg:col-span-5  p-4 rounded-[6px] "
-          >
-            <h3 className="text-lg font-bold text-gray-900 mb-3">
-              {t("Location")}
-            </h3>
-            <div className="w-full h-[180px] rounded-[6px] overflow-hidden bg-gray-200">
-              <iframe
-                title="Hotel Location Map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2561.35338166542!2d8.5682852!3d50.051877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bd0be3e8e2c2f7%3A0xc3b8a34b22dbf9e!2sFrankfurt%20Airport!5e0!3m2!1sen!2sde!4v1700000000000!5m2!1sen!2sde"
-                className="w-full h-full border-0 rounded-xl"
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-              }}
-            >
-              <p className="text-slate-600 max-w-[70%] leading-tight text-[11px] pt-3">
-                {t(
-                  "Hotel_Address",
-                  "Terminal 1 / Gate z 25, frankfurt am Main/ Airport, Frankfurt, Hessen, 60549",
-                )}
-              </p>
-              <a
-                href="#map"
-                className="text-xs text-blue-600 font-semibold mt-1 inline-block hover:underline"
-              >
-                {t("View in a map")}
-              </a>
-            </div>
-          </div>
+        <div className="flex items-center gap-3">
+          <AcUnitIcon className="text-blue-500 text-base" />{" "}
+          {t("Air conditioning")}
+        </div>
+        <div className="flex items-center gap-3">
+          <SupportAgentIcon className="text-blue-500 text-base" />{" "}
+          {t("24/7 front desk")}
+        </div>
+        <div className="flex items-center gap-3">
+          <RestaurantIcon className="text-blue-500 text-base" />{" "}
+          {t("Breakfast available")}
         </div>
       </div>
+    </div>
 
+    {/* الخريطة المصغرة (Location Box) - تم إصلاح المحاذاة */}
+    <div className="lg:col-span-5 w-full">
+      <h3 className="text-lg font-bold text-gray-900 mb-3">
+        {t("Location")}
+      </h3>
+      <div className="w-full h-[180px] rounded-[6px] overflow-hidden bg-gray-200">
+        <iframe
+          title="Hotel Location Map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2561.35338166542!2d8.5682852!3d50.051877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bd0be3e8e2c2f7%3A0xc3b8a34b22dbf9e!2sFrankfurt%20Airport!5e0!3m2!1sen!2sde!4v1700000000000!5m2!1sen!2sde"
+          className="w-full h-full border-0 rounded-xl"
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+      <div className="flex justify-between items-center mt-3">
+        <p className="text-slate-600 max-w-[70%] leading-tight text-[11px]">
+          {t(
+            "Hotel_Address",
+            "Terminal 1 / Gate z 25, frankfurt am Main/ Airport, Frankfurt, Hessen, 60549"
+          )}
+        </p>
+        <a
+          href="#map"
+          className="text-xs text-blue-600 font-semibold hover:underline"
+        >
+          {t("View in a map")}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
       {/* ========================================================== */}
       {/* --- المودال المطلوب عند الضغط على Reserve a room --- */}
       {/* --- Modal a para iti Reserve a room --- */}
@@ -1301,185 +1291,185 @@ const isRtl = i18n.language === "ar";
       {/* reviews section */}
       {/* reviews section */}
       {/* --- قسم التقييمات (Reviews) --- */}
-      <div
-        ref={reviewsRef}
-        className="max-w-7xl mx-auto px-0 mt-20 pt-10 space-y-6 text-left rtl:text-right overflow-x-hidden"
-      >
-        <h2 className="text-xl font-bold text-gray-900">{t("Reviews")}</h2>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* القسم الأول (قائمة التقييمات - 7 أعمدة) */}
-          <div className="lg:col-span-7 space-y-4 order-2 lg:order-1">
-            <div
-              style={{
-                scrollbarWidth: "thin",
-                scrollbarColor: "#e2e8f0 transparent",
-              }}
-              className="space-y-4 max-h-[480px] overflow-y-auto overflow-x-hidden px-3 [&::-webkit-scrollbar]:w-[3px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-slate-300 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-slate-400"
-            >
-              {reviewsList.map((rev) => (
-                <div
-                  key={rev.id}
-                  className="bg-white border-b border-gray-100 pb-5 space-y-2 transition-all"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="font-bold text-sm text-gray-900">
-                      {t(`${rev.name}`)}
-                    </span>
-
-                    {/* إعادة dir="ltr" ومسافة مريحة gap-2 لكي لا تلتصق النجوم ببعضها ويتصلح شكلها بالعربي */}
-                    <div className="flex items-center gap-2" dir="ltr">
-                      <span className="text-xs font-bold text-slate-800">
-                        {rev.rating}
-                      </span>
-                      <Rating
-                        value={Number(rev.rating)}
-                        precision={0.5}
-                        readOnly
-                        size="small"
-                        icon={
-                          <StarIcon
-                            fontSize="inherit"
-                            style={{ color: "#f59e0b" }}
-                          />
-                        }
-                        emptyIcon={
-                          <StarIcon
-                            style={{ opacity: 0.3 }}
-                            fontSize="inherit"
-                          />
-                        }
-                        sx={{ fontSize: "16px" }}
-                      />
-                    </div>
-                  </div>
-
-                  {/* ترجمة نص الملاحظة (Lorem) إلى العربية بأسلوب صحيح */}
-                  <p
-  className="text-xs text-gray-500 leading-relaxed break-words text-left rtl:text-right"
-  dir={i18n.language === "ar" ? "rtl" : "ltr"}
->
-  {i18n.language === "ar" && rev.comment.includes("Lorem ipsum")
-    ? "هذا النص هو مثال لنص وهمي يُستخدم في التصميم والطباعة. يمكن استبداله بنص آخر في هذا المكان."
-    : t(rev.comment)}
-</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* القسم الثاني (نموذج كتابة التقييم - 5 أعمدة) */}
-          <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-gray-200/90 shadow-sm space-y-5 order-1 lg:order-2 text-left rtl:text-right">
-            <div className="space-y-1">
-              <h3 className="text-base font-bold text-gray-900">
-                {t("Add Review")}
-              </h3>
-              <p className="text-xs text-gray-600">
-                {t(
-                  "Please add review, this will help us to improve your experience",
-                )}
-              </p>
-            </div>
-
-            <form onSubmit={handleAddReview} className="space-y-4">
-
-
-              {/* النجوم التفاعلية */}
-
-
-{/* Interactive Rating - Arabic & English */}
 <div
-  dir={isRtl ? "rtl" : "ltr"}
-  className="flex flex-col items-start"
+  ref={reviewsRef}
+  className="max-w-7xl mx-auto px-6 mt-20 pt-10 space-y-6 text-left rtl:text-right overflow-x-hidden"
 >
-  <div dir="ltr">
-    <Rating
-      name="half-rating-interactive"
-      value={userRating}
-      precision={0.5}
-      onChange={(event, newValue) => {
-        if (newValue !== null) {
-          setUserRating(newValue);
-        }
-      }}
-      onChangeActive={(event, newHover) => {
-        setHoverRating(newHover);
-      }}
-      size="large"
-      icon={
-        <StarIcon
-          fontSize="inherit"
-          sx={{ color: "#F59E0B" }}
-        />
-      }
-      emptyIcon={
-        <StarIcon
-          fontSize="inherit"
-          sx={{ color: "#CBD5E1" }}
-        />
-      }
-      sx={{
-        fontSize: "32px",
-        direction: "ltr",
-
-        "& .MuiRating-iconEmpty": {
-          color: "#CBD5E1",
-        },
-
-        "& .MuiRating-iconFilled": {
-          color: "#F59E0B",
-        },
-
-        "& .MuiRating-iconHover": {
-          color: "#F59E0B",
-        },
-
-        "& .MuiRating-icon": {
-          transition: "color 0.15s ease",
-        },
-      }}
-    />
+  {/* عنوان التقييمات بنفس المحاذاة */}
+  <div>
+    <h2 className="text-xl font-bold text-gray-900">{t("Reviews")}</h2>
   </div>
 
-  <div
-    dir={isRtl ? "rtl" : "ltr"}
-    className="mt-2 flex items-center gap-2 text-sm"
-  >
-    <span className="font-bold text-amber-500" dir="ltr">
-      {hoverRating !== -1 ? hoverRating : userRating}
-    </span>
+  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    {/* القسم الأول (قائمة التقييمات - 7 أعمدة) */}
+    <div className="lg:col-span-7 space-y-4 order-2 lg:order-1">
+      <div
+        style={{
+          scrollbarWidth: "thin",
+          scrollbarColor: "#e2e8f0 transparent",
+        }}
+        className="space-y-4 max-h-[480px] overflow-y-auto overflow-x-hidden px-1 [&::-webkit-scrollbar]:w-[3px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-slate-300 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-slate-400"
+      >
+        {reviewsList.map((rev) => (
+          <div
+            key={rev.id}
+            className="bg-white border-b border-gray-100 pb-5 space-y-2 transition-all"
+          >
+            <div className="flex items-center justify-between">
+              <span className="font-bold text-sm text-gray-900">
+                {t(`${rev.name}`)}
+              </span>
 
-    <span className="text-slate-500">
-      {t("out of 5")}
-    </span>
-  </div>
-</div>
-
-              {/* حقل إدخال التعليق */}
-              <div>
-                <textarea
-                  value={reviewText}
-                  onChange={(e) => setReviewText(e.target.value)}
-                  placeholder={t("Type Here..")}
-                  dir={i18n.language === "ar" ? "rtl" : "ltr"}
-                  className="w-full bg-white border border-gray-200 rounded-xl p-3.5 text-xs outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-100 transition-all resize-none shadow-xs placeholder-gray-300 text-slate-800 text-left rtl:text-right"
-                  rows="4"
-                  required
+              {/* إعادة dir="ltr" ومسافة مريحة gap-2 لكي لا تلتصق النجوم ببعضها ويتصلح شكلها بالعربي */}
+              <div className="flex items-center gap-2" dir="ltr">
+                <span className="text-xs font-bold text-slate-800">
+                  {rev.rating}
+                </span>
+                <Rating
+                  value={Number(rev.rating)}
+                  precision={0.5}
+                  readOnly
+                  size="small"
+                  icon={
+                    <StarIcon
+                      fontSize="inherit"
+                      style={{ color: "#f59e0b" }}
+                    />
+                  }
+                  emptyIcon={
+                    <StarIcon
+                      style={{ opacity: 0.3 }}
+                      fontSize="inherit"
+                    />
+                  }
+                  sx={{ fontSize: "16px" }}
                 />
               </div>
+            </div>
 
-              {/* زر الإرسال */}
-              <button
-              aria-label="Add Review"
-                type="submit"
-                className="w-full bg-[#26BBFD] hover:bg-sky-500 text-white text-xs font-bold py-3.5 rounded-xl shadow-md transition-all cursor-pointer"
-              >
-                {t("Add Review")}
-              </button>
-            </form>
+            {/* ترجمة نص الملاحظة (Lorem) إلى العربية بأسلوب صحيح */}
+            <p
+              className="text-xs text-gray-500 leading-relaxed break-words text-left rtl:text-right"
+              dir={i18n.language === "ar" ? "rtl" : "ltr"}
+            >
+              {i18n.language === "ar" && rev.comment.includes("Lorem ipsum")
+                ? "هذا النص هو مثال لنص وهمي يُستخدم في التصميم والطباعة. يمكن استبداله بنص آخر في هذا المكان."
+                : t(rev.comment)}
+            </p>
           </div>
-        </div>
+        ))}
       </div>
     </div>
+
+    {/* القسم الثاني (نموذج كتابة التقييم - 5 أعمدة) */}
+    <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-gray-200/90 shadow-sm space-y-5 order-1 lg:order-2 text-left rtl:text-right">
+      <div className="space-y-1">
+        <h3 className="text-base font-bold text-gray-900">
+          {t("Add Review")}
+        </h3>
+        <p className="text-xs text-gray-600">
+          {t(
+            "Please add review, this will help us to improve your experience"
+          )}
+        </p>
+      </div>
+
+      <form onSubmit={handleAddReview} className="space-y-4">
+        {/* النجوم التفاعلية */}
+        <div
+          dir={isRtl ? "rtl" : "ltr"}
+          className="flex flex-col items-start"
+        >
+          <div dir="ltr">
+            <Rating
+              name="half-rating-interactive"
+              value={userRating}
+              precision={0.5}
+              onChange={(event, newValue) => {
+                if (newValue !== null) {
+                  setUserRating(newValue);
+                }
+              }}
+              onChangeActive={(event, newHover) => {
+                setHoverRating(newHover);
+              }}
+              size="large"
+              icon={
+                <StarIcon
+                  fontSize="inherit"
+                  sx={{ color: "#F59E0B" }}
+                />
+              }
+              emptyIcon={
+                <StarIcon
+                  fontSize="inherit"
+                  sx={{ color: "#CBD5E1" }}
+                />
+              }
+              sx={{
+                fontSize: "32px",
+                direction: "ltr",
+
+                "& .MuiRating-iconEmpty": {
+                  color: "#CBD5E1",
+                },
+
+                "& .MuiRating-iconFilled": {
+                  color: "#F59E0B",
+                },
+
+                "& .MuiRating-iconHover": {
+                  color: "#F59E0B",
+                },
+
+                "& .MuiRating-icon": {
+                  transition: "color 0.15s ease",
+                },
+              }}
+            />
+          </div>
+
+          <div
+            dir={isRtl ? "rtl" : "ltr"}
+            className="mt-2 flex items-center gap-2 text-sm"
+          >
+            <span className="font-bold text-amber-500" dir="ltr">
+              {hoverRating !== -1 ? hoverRating : userRating}
+            </span>
+
+            <span className="text-slate-500">
+              {t("out of 5")}
+            </span>
+          </div>
+        </div>
+
+        {/* حقل إدخال التعليق */}
+        <div>
+          <textarea
+            value={reviewText}
+            onChange={(e) => setReviewText(e.target.value)}
+            placeholder={t("Type Here..")}
+            dir={i18n.language === "ar" ? "rtl" : "ltr"}
+            className="w-full bg-white border border-gray-200 rounded-xl p-3.5 text-xs outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-100 transition-all resize-none shadow-xs placeholder-gray-300 text-slate-800 text-left rtl:text-right"
+            rows="4"
+            required
+          />
+        </div>
+
+        {/* زر الإرسال */}
+        <button
+          aria-label="Add Review"
+          type="submit"
+          className="w-full bg-[#26BBFD] hover:bg-sky-500 text-white text-xs font-bold py-3.5 rounded-xl shadow-md transition-all cursor-pointer"
+        >
+          {t("Add Review")}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+    </div>
+
+    
   );
 }
