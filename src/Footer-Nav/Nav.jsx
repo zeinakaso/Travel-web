@@ -113,7 +113,7 @@ useEffect(() => {
 
         {/* Dropdown menu */}
         <Menu
-           style={{marginTop:"20px"}}
+           style={{marginTop:"20px",}}
           id="profile-menu"
           anchorEl={anchorEl}
           open={open}
@@ -127,11 +127,12 @@ useEffect(() => {
                 sm: 460,
                 md: 500,
               },
-              maxWidth: "calc(100vw - 24px)",
+              maxWidth: "calc(100vw - 34px)",
               boxSizing: "border-box",
               borderRadius: "24px",
               mt: 2.5,
               py: 2,
+              px:10,
               backgroundColor: "#ffffff",
               boxShadow:
                 "0 20px 35px -10px rgba(0, 0, 0, 0.12)",
@@ -139,7 +140,7 @@ useEffect(() => {
               position: "relative",
 
               "& .MuiMenuItem-root": {
-                paddingX: 3,
+                paddingX: 6,
                 paddingY: 1.5,
                 fontSize: "0.9rem",
                 color: "#1E293B",

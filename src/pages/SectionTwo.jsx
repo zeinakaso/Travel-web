@@ -11,7 +11,6 @@ import packageImg3 from "../assets/img1.webp";
 import packageImg4 from "../assets/img3.webp";
 import packageImg5 from "../assets/img2.webp";
 import packageImg6 from "../assets/img1.webp";
-// import packageImg7 from "../assets/Vector (1).webp";
 
 // translation
 import "../i18n";
@@ -26,7 +25,7 @@ export default function SectionTwo() {
       id: 1,
       title: "Packages 2023",
       description:
-        "Lorem ipsum dolor sit amet consectetur. Diam odio condimentum in justo orci vitae ligula quis. Lacus etiam elit mi lacus scelerisque in consectetur. Feugiat commodo aenean adipiscing maecenas feugiat. Nibh tellus suscipit auctor nam malesuada non.",
+        "Lorem ipsum dolor sit amet consectetur. Diam odio condimentum in justo orci vitae ligula quis. Lacus etiam elit mi lacus scelerisque in consectetur. Feugiat commodo aenean adipiscing maecenas feugiat. Nibh tellus suscipit auctor nam malesuada non. Nullam semper aliquam urna sit at. Amet molestie malesuada vestibulum lectus et et. Tellus at ultrices et elementum tempor mauris feugiat tempor neque. Egestas duis non viverra at nisi.",
       features: ["Hajj Drafts", "Hajj Visa", "Flights to Madinah"],
       image: packageImg1,
     },
@@ -97,7 +96,7 @@ export default function SectionTwo() {
   const currentPackage = packagesData[currentIndex];
 
   return (
-    <section className="relative w-full bg-white py-12 md:py-20 px-6 md:px-16 lg:px-24 font-sans overflow-hidden">
+    <section className="w-full bg-white py-12 md:py-20 px-6 md:px-16 lg:px-24 font-sans overflow-hidden">
       {/* --- العنوان الرئيسي --- */}
       <div className="text-center mb-10 md:mb-16">
         <h2 className="text-xl md:text-2xl font-bold tracking-widest text-[#1e293b] uppercase">
@@ -107,20 +106,24 @@ export default function SectionTwo() {
 
       {/* --- المحتوى الرئيسي --- */}
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[380px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+          
           {/* القسم النصي */}
           <div
-            className={`lg:col-span-5 space-y-6 text-center lg:text-left rtl:lg:text-right order-2 lg:order-1 transition-all duration-300 ${
+            className={`lg:col-span-6 space-y-6 text-center lg:text-left rtl:lg:text-right order-2 lg:order-1 transition-all duration-300 ${
               isAnimating
                 ? "opacity-0 translate-x-[-10px]"
                 : "opacity-100 translate-x-0"
             }`}
           >
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 leading-snug">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#1B1F40] leading-snug">
               {t(currentPackage.title)}
             </h3>
 
-            <p className="text-gray-500 text-sm md:text-base leading-relaxed min-h-[90px]">
+            <p 
+              style={{ fontSize: "16px", fontWeight: "300", lineHeight: "1.7" }}
+              className="text-gray-500"
+            >
               {t(currentPackage.description)}
             </p>
 
@@ -149,16 +152,18 @@ export default function SectionTwo() {
             {/* زر View Details */}
             <div className="pt-2 flex justify-center lg:justify-start rtl:lg:justify-start">
               <button 
-              aria-label="View Details"
-              className="px-8 py-3 rounded-lg border border-[#26BBFD] text-[#26BBFD] hover:bg-[#26BBFD] hover:text-white active:scale-95 transition-all duration-300 text-sm font-semibold cursor-pointer">
+                aria-label="View Package Details"
+                className="px-8 py-3 rounded-lg border border-[#26BBFD] text-[#26BBFD] hover:bg-[#26BBFD] hover:text-white active:scale-95 transition-all duration-300 text-sm font-semibold cursor-pointer"
+              >
                 {t("View Details")}
               </button>
             </div>
           </div>
 
-          {/* القسم الأيمن: عرض الصورة */}
-          <div className="lg:col-span-7 flex justify-center lg:justify-end order-1 lg:order-2">
-            <div className="relative w-full max-w-xl h-64 sm:h-80 md:h-96 flex items-center justify-center overflow-hidden">
+          {/* قسم الصورة: تم إرجاع object-contain للمحافظة على التعرجات والمنحنى الأصلي للصورة */}
+          {/* قسم الصورة: تم تكبير الحاوية والارتفاع لتأخذ المساحة الكاملة */}
+          <div className="lg:col-span-6 flex justify-center lg:justify-end order-1 lg:order-2">
+            <div className="relative w-full max-w-2xl h-[340px] sm:h-[400px] md:h-[460px] flex items-center justify-center overflow-visible">
               <img
                 src={currentPackage.image}
                 alt={currentPackage.title}
@@ -166,27 +171,22 @@ export default function SectionTwo() {
                   isAnimating ? "opacity-0 scale-95" : "opacity-100 scale-100"
                 }`}
               />
-              {/* <img
-                src={packageImg7}
-                alt="decoration"
-                className="absolute inset-0 w-full h-full object-contain pointer-events-none"
-              /> */}
             </div>
           </div>
+
         </div>
       </div>
 
       {/* --- شريط التنقل السفلي --- */}
-      <div className="max-w-7xl mx-auto pt-8 border-t border-gray-100 mt-6 flex flex-row items-center justify-between gap-4 text-xs md:text-sm text-gray-600 font-medium select-none">
+      <div className="max-w-7xl mx-auto  flex flex-row items-center justify-between gap-4 text-xs md:text-sm text-gray-600 font-medium select-none">
         
-        {/* زر PREVIOUS (السابق) */}
+        {/* زر PREVIOUS */}
         <button
-        aria-label="previos"
+          aria-label="Previous Package"
           onClick={handlePrev}
           className="flex items-center gap-2 text-[#26BBFD] hover:opacity-80 transition-opacity cursor-pointer group"
         >
           <span className="text-sm font-light transition-transform group-hover:-translate-x-1 rtl:group-hover:translate-x-1">
-            {/* في حال العربية يظهر سهم يشير لليمين (ArrowForward) وفي الإنجليزي سهم يشير لليصار (ArrowBack) */}
             {isRtl ? (
               <ArrowForwardOutlinedIcon sx={{ fontSize: 20 }} />
             ) : (
@@ -198,19 +198,18 @@ export default function SectionTwo() {
 
         {/* العداد الحالي */}
         <div className="text-gray-500 tracking-widest text-xs font-medium">
-          {t("Showing")} {String(currentIndex + 1).padStart(2, "0")}/0
-          {packagesData.length}
+          {t("Showing")} {String(currentIndex + 1).padStart(2, "0")}/
+          {String(packagesData.length).padStart(2, "0")}
         </div>
 
-        {/* زر NEXT (التالي) */}
+        {/* زر NEXT */}
         <button
-        aria-label="next"
+          aria-label="Next Package"
           onClick={handleNext}
           className="flex items-center gap-2 text-[#26BBFD] hover:opacity-80 transition-opacity cursor-pointer group"
         >
           <span className="tracking-widest font-semibold">{t("NEXT")}</span>
           <span className="text-sm font-light transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1">
-            {/* في حال العربية يظهر سهم يشير لليسار (ArrowBack) وفي الإنجليزي سهم يشير لليمين (ArrowForward) */}
             {isRtl ? (
               <ArrowBackOutlinedIcon sx={{ fontSize: 20 }} />
             ) : (

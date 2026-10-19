@@ -77,13 +77,25 @@ export default function SectionFour() {
           </div>
 
           {/* الكارد 5 (الكارد الأزرق الإعلاني يميناً) */}
-          <div className="flex flex-col justify-between bg-blue-500 hover:bg-blue-600 transition-colors duration-300 rounded-2xl p-6 text-white cursor-pointer shadow-sm relative overflow-hidden h-[200px] md:h-[240px]">
-            <div>
-              <h2 className="text-xl md:text-2xl font-bold leading-snug whitespace-pre-line">
-                {t("Show all the packages,\n view now")}
+          <div className="flex flex-col  bg-blue-500 hover:bg-blue-600 transition-colors duration-300 rounded-2xl p-6 text-white cursor-pointer shadow-sm relative overflow-hidden h-[200px] md:h-[240px]">
+            <div
+            
+            >
+              <h2 
+              style={{fontSize:"35px",
+                fontWeight:"600"
+              }}
+              className=" md:text-2xl font-bold leading-snug whitespace-pre-line">
+                {t("Show all the \n  packages,\n view now")}
               </h2>
               <br />
-              <p className="text-white text-xl md:text-sm font-medium">
+              <p
+              style={{fontSize:"20px",
+                fontWeight:"300",
+                marginBottom:"30px",
+
+              }}
+              className="text-white  md:text-sm ">
                 {t("Discover dream destinations")}
               </p>
             </div>

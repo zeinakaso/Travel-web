@@ -17,6 +17,8 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import RestaurantOutlinedIcon from "@mui/icons-material/RestaurantOutlined";
 import DirectionsSubwayOutlinedIcon from "@mui/icons-material/DirectionsSubwayOutlined";
+import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
+import PersonIcon from '@mui/icons-material/Person';
 
 // import LocationOnIcon from "@mui/icons-material/LocationOn";
 // import DirectionsSubwayIcon from "@mui/icons-material/DirectionsSubway";
@@ -36,6 +38,7 @@ import "../i18n";
 import { useTranslation } from "react-i18next";
 
 import { Helmet } from 'react-helmet-async';
+// import { color } from "framer-motion";
 
 export default function HotelDetails() {
   const { t, i18n } = useTranslation();
@@ -112,30 +115,41 @@ const isRtl = i18n.language === "ar";
   const [hoverRating, setHoverRating] = useState(0);
   const [userRating, setUserRating] = useState(5);
   const [reviewText, setReviewText] = useState("");
-  const [reviewsList, setReviewsList] = useState([
-    {
-      id: 1,
-      name: "Review Name",
-      rating: 4.5,
-      comment:
-        "Lorem ipsum dolor sit amet consectetur. Volutpat at sit ac posuere consequat nulla pellentesque cursus faucibus.",
-    },
-    {
-      id: 2,
-      name: "Review Name",
-      rating: 4.5,
-      comment:
-        "Lorem ipsum dolor sit amet consectetur. Volutpat at sit ac posuere consequat nulla pellentesque cursus faucibus.",
-    },
-    {
-      id: 3,
-      name: "Review Name",
-      rating: 4.5,
-      comment:
-        "Lorem ipsum dolor sit amet consectetur. Volutpat at sit ac posuere consequat nulla pellentesque cursus faucibus.",
-    },
-  ]);
+// 1. قراءة التقييمات من localStorage أو استخدام القائمة الافتراضية
+  const [reviewsList, setReviewsList] = useState(() => {
+    const savedReviews = localStorage.getItem("travel_app_reviews");
+    return savedReviews ? JSON.parse(savedReviews) : [
+      {
+        id: 1,
+        name: "Review Name",
+        rating: 4.5,
+        comment:
+          "Lorem ipsum dolor sit amet consectetur. Volutpat at sit ac posuere consequat nulla pellentesque cursus faucibus.",
+      },
+      {
+        id: 2,
+        name: "Review Name",
+        rating: 4.5,
+        comment:
+          "Lorem ipsum dolor sit amet consectetur. Volutpat at sit ac posuere consequat nulla pellentesque cursus faucibus.",
+      },
+      {
+        id: 3,
+        name: "Review Name",
+        rating: 4.5,
+        comment:
+          "Lorem ipsum dolor sit amet consectetur. Volutpat at sit ac posuere consequat nulla pellentesque cursus faucibus.",
+      },
+    ];
+  });
 
+  // 2. حفظ التقييمات في localStorage كلما حدث تغيير عليها
+  useEffect(() => {
+    localStorage.setItem("travel_app_reviews", JSON.stringify(reviewsList));
+  }, [reviewsList]);
+
+
+  
   // مراجع (Refs) للوصول للأقسام عند الضغط على الأزرار
   const overviewRef = useRef(null);
   const roomsRef = useRef(null);
@@ -452,13 +466,16 @@ const isRtl = i18n.language === "ar";
       {/* --- Modal a para iti Reserve a room --- */}
       {isModalOpen && (
         <div
+
+           
           onClick={() => setIsModalOpen(false)}
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#2870FB33] backdrop-blur-l transition-all duration-200"
         >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="bg-white w-full  p-2 max-w-[460px] rounded-[8px] shadow-xl overflow-hidden relative max-h-[90vh] flex flex-col my-auto border border-gray-100 text-left rtl:text-right"
-          >
+          {/* المودال الداخلي - تم تعديل max-w ليكون 580px وزيادة الـ padding ليكون متناسقاً */}
+<div
+  onClick={(e) => e.stopPropagation()}
+  className="bg-white w-full p-2 sm:p-4 max-w-[580px] rounded-[8px] shadow-2xl overflow-hidden relative max-h-[90vh] flex flex-col my-auto border border-gray-100 text-left rtl:text-right transition-all duration-300"
+>
             {/* Header ken buton nga X */}
             <div className="flex items-center justify-between px-6 pt-5 pb-3 ">
               <h3 className="text-base font-bold text-gray-900">
@@ -490,10 +507,10 @@ const isRtl = i18n.language === "ar";
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h4 className="font-bold text-gray-900 text-xs leading-snug">
+                <h4 className="font-bold text-gray-900 text-[16px] leading-snug">
                   {t("Economy Double Room, 1 Double Bed, Non Smoking")}
                 </h4>
-                <div className="flex items-center gap-3 text-[10px] text-gray-600 font-normal">
+                <div    className="flex items-center gap-3 text-[14px] text-gray-600 font-normal">
                   <span className="flex items-center gap-1">
                     <RoundedCornerIcon
                       style={{ color: "#26BBFD", fontSize: 13 }}
@@ -513,10 +530,10 @@ const isRtl = i18n.language === "ar";
 
               {/* Room Amenities */}
               <div className="space-y-1.5">
-                <h5 className="font-bold text-gray-900 text-xs">
+                <h5 className="font-bold text-gray-900 text-[16px]">
                   {t("Room Amenities")}
                 </h5>
-                <div className="grid grid-cols-3 gap-y-2 text-[10px] text-gray-500 font-normal">
+                <div className="grid grid-cols-3 gap-y-2 text-[12px] text-gray-500 font-normal">
                   <div className="flex items-center gap-1.5">
                     <WifiIcon
                       sx={{ fontSize: 13 }}
@@ -568,7 +585,7 @@ const isRtl = i18n.language === "ar";
                   <span>{t("Check In - Check Out")}</span>
                   <span>{t("Country")}</span>
                 </div>
-                <div className="grid grid-cols-2 text-xs font-bold text-gray-800">
+                <div style={{fontSize:"14px",fontWeight:"500"}}  className="grid grid-cols-2 text-xs font-bold text-[#1B1F40]">
                   <span>15-03 / 22-04</span>
                   <span>{t("France")}</span>
                 </div>
@@ -576,55 +593,60 @@ const isRtl = i18n.language === "ar";
                 <div className="border-b border-dashed border-[#26BBFD]/40 my-1.5"></div>
 
                 <div className="grid grid-cols-2 text-[10px] text-gray-700 font-medium">
-                  <span className="flex items-center gap-1">
-                    <span className="text-[#26BBFD]">👤</span> 8 {t("Adults")}
+                  <span  style={{fontSize:"14px",fontWeight:"400"}} className="flex items-center gap-1">
+                    <span    className="text-[#26BBFD]"><PersonIcon style={{color:"#26BBFD"}}/></span> 8 {t("Adults")}
                   </span>
-                  <span className="flex items-center gap-1">
-                    <span className="text-[#26BBFD]">👶</span> 3 {t("Children")}
+                  <span style={{fontSize:"14px",fontWeight:"400"}} className="flex items-center gap-1">
+                    <span className="text-[#26BBFD]"> < AccessibilityNewIcon style={{color:"#26BBFD"}}/> </span> 3 {t("Children")}
                   </span>
                 </div>
               </div>
 
-              {/* Extras */}
-              <div className="space-y-1.5">
-                <h5 className="font-bold text-gray-900 text-xs">
-                  {t("Extras")}
-                </h5>
-                <div className="space-y-1.5 text-xs">
-                  <label className="flex items-center justify-between cursor-pointer">
-                    <div className="flex items-center gap-2">
-                      <input
-                        type="radio"
-                        name="extra"
-                        checked={selectedExtra === "none"}
-                        onChange={() => setSelectedExtra("none")}
-                        className="accent-[#26BBFD] w-3.5 h-3.5"
-                      />
-                      <span className="text-gray-700 text-xs font-medium">
-                        {t("No extras")}
-                      </span>
-                    </div>
-                    <span className="text-xs text-gray-600">+$0</span>
-                  </label>
+{/* Extras */}
+<div className="space-y-2">
+  <h5 className="font-bold text-gray-900 text-xs">
+    {t("Extras")}
+  </h5>
+  <div className="space-y-2 text-xs">
+    <label className="flex items-center justify-between cursor-pointer group">
+      <div className="flex items-center gap-2.5">
+        <div className="relative flex items-center justify-center">
+          <input
+            type="radio"
+            name="extra"
+            checked={selectedExtra === "none"}
+            onChange={() => setSelectedExtra("none")}
+            className="peer appearance-none w-4 h-4 rounded-full border-2 border-gray-300 checked:border-[#26BBFD] focus:outline-none cursor-pointer transition-all"
+          />
+          <span className="w-2 h-2 rounded-full bg-[#26BBFD] absolute opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity"></span>
+        </div>
+        <span className="text-gray-700 text-xs font-medium">
+          {t("No extras")}
+        </span>
+      </div>
+      <span className="text-xs text-gray-500">+$0</span>
+    </label>
 
-                  <label className="flex items-center justify-between cursor-pointer">
-                    <div className="flex items-center gap-2">
-                      <input
-                        type="radio"
-                        name="extra"
-                        checked={selectedExtra === "breakfast"}
-                        onChange={() => setSelectedExtra("breakfast")}
-                        className="accent-[#26BBFD] w-3.5 h-3.5"
-                      />
-                      <span className="text-gray-700 text-xs font-medium">
-                        {t("Breakfast buffet")}
-                      </span>
-                    </div>
-                    <span className="text-xs text-gray-600">+$15</span>
-                  </label>
-                </div>
-              </div>
-
+    <label className="flex items-center justify-between cursor-pointer group">
+      <div className="flex items-center gap-2.5">
+        <div className="relative flex items-center justify-center">
+          <input
+            type="radio"
+            name="extra"
+            checked={selectedExtra === "breakfast"}
+            onChange={() => setSelectedExtra("breakfast")}
+            className="peer appearance-none w-4 h-4 rounded-full border-2 border-gray-300 checked:border-[#26BBFD] focus:outline-none cursor-pointer transition-all"
+          />
+          <span className="w-2 h-2 rounded-full bg-[#26BBFD] absolute opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity"></span>
+        </div>
+        <span className="text-gray-700 text-xs font-medium">
+          {t("Breakfast buffet")}
+        </span>
+      </div>
+      <span className="text-xs text-gray-500">+$15</span>
+    </label>
+  </div>
+</div>
               {/* Price details */}
               <div className="space-y-1.5 text-xs bg-[#F8FAFC] p-3.5 rounded-xl border border-slate-100">
                 <h5 className="font-bold text-gray-900 text-xs mb-1.5">
@@ -656,7 +678,7 @@ const isRtl = i18n.language === "ar";
                 <div className="border-t border-slate-200/60 my-1.5 pt-1.5">
                   <div className="flex justify-between items-center text-xs font-bold text-gray-900">
                     <span>{t("Total (incl. VAT)")}</span>
-                    <span className="text-[#26BBFD] font-extrabold text-sm">
+                    <span className="text-[#26BBFD] font-bold-[600] text-sm">
                       1698.00 SAR
                     </span>
                   </div>
@@ -667,85 +689,97 @@ const isRtl = i18n.language === "ar";
               </div>
 
               {/* Payment Methods */}
-              <div className="space-y-1.5">
-                <h5 className="font-bold text-gray-900 text-xs">
-                  {t("Choose Payment Method")}
-                </h5>
-                <div className="space-y-1.5">
-                  <label
-                    className={`flex items-center justify-between p-2.5 rounded-xl border cursor-pointer transition-all ${
-                      paymentMethod === "mastercard"
-                        ? "border-sky-200 bg-sky-50/20"
-                        : "border-slate-100 bg-[#F8FAFC]"
-                    }`}
-                  >
-                    <div className="flex items-center gap-2.5">
-                      <input
-                        type="radio"
-                        name="payment"
-                        checked={paymentMethod === "mastercard"}
-                        onChange={() => setPaymentMethod("mastercard")}
-                        className="accent-[#26BBFD] w-3.5 h-3.5"
-                      />
-                      <span className="text-xs font-medium text-gray-700">
-                        {t("Master Card")}
-                      </span>
-                    </div>
-                    <div className="flex items-center -space-x-1">
-                      <div className="w-3.5 h-3.5 rounded-full bg-red-500 opacity-90"></div>
-                      <div className="w-3.5 h-3.5 rounded-full bg-amber-400 opacity-90"></div>
-                    </div>
-                  </label>
+<div className="space-y-1.5">
+  <h5 className="font-bold text-gray-900 text-xs">
+    {t("Choose Payment Method")}
+  </h5>
+  <div className="space-y-1.5">
+    {/* Master Card */}
+    <label
+      className={`flex items-center justify-between p-2.5 rounded-xl border cursor-pointer transition-all ${
+        paymentMethod === "mastercard"
+          ? "border-sky-200 bg-sky-50/20"
+          : "border-slate-100 bg-[#F8FAFC]"
+      }`}
+    >
+      <div className="flex items-center gap-2.5">
+        <div className="relative flex items-center justify-center">
+          <input
+            type="radio"
+            name="payment"
+            checked={paymentMethod === "mastercard"}
+            onChange={() => setPaymentMethod("mastercard")}
+            className="peer appearance-none w-4 h-4 rounded-full border-2 border-gray-300 checked:border-[#26BBFD] focus:outline-none cursor-pointer transition-all"
+          />
+          <span className="w-2 h-2 rounded-full bg-[#26BBFD] absolute opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity"></span>
+        </div>
+        <span className="text-xs font-medium text-gray-700">
+          {t("Master Card")}
+        </span>
+      </div>
+      <div className="flex items-center -space-x-1">
+        <div className="w-3.5 h-3.5 rounded-full bg-red-500 opacity-90"></div>
+        <div className="w-3.5 h-3.5 rounded-full bg-amber-400 opacity-90"></div>
+      </div>
+    </label>
 
-                  <label
-                    className={`flex items-center justify-between p-2.5 rounded-xl border cursor-pointer transition-all ${
-                      paymentMethod === "mada"
-                        ? "border-sky-200 bg-sky-50/20"
-                        : "border-slate-100 bg-[#F8FAFC]"
-                    }`}
-                  >
-                    <div className="flex items-center gap-2.5">
-                      <input
-                        type="radio"
-                        name="payment"
-                        checked={paymentMethod === "mada"}
-                        onChange={() => setPaymentMethod("mada")}
-                        className="accent-[#26BBFD] w-3.5 h-3.5"
-                      />
-                      <span className="text-xs font-medium text-gray-700">
-                        {t("Mada")}
-                      </span>
-                    </div>
-                    <span className="text-[9px] font-extrabold tracking-wider text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200/50">
-                      mada
-                    </span>
-                  </label>
+    {/* Mada */}
+    <label
+      className={`flex items-center justify-between p-2.5 rounded-xl border cursor-pointer transition-all ${
+        paymentMethod === "mada"
+          ? "border-sky-200 bg-sky-50/20"
+          : "border-slate-100 bg-[#F8FAFC]"
+      }`}
+    >
+      <div className="flex items-center gap-2.5">
+        <div className="relative flex items-center justify-center">
+          <input
+            type="radio"
+            name="payment"
+            checked={paymentMethod === "mada"}
+            onChange={() => setPaymentMethod("mada")}
+            className="peer appearance-none w-4 h-4 rounded-full border-2 border-gray-300 checked:border-[#26BBFD] focus:outline-none cursor-pointer transition-all"
+          />
+          <span className="w-2 h-2 rounded-full bg-[#26BBFD] absolute opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity"></span>
+        </div>
+        <span className="text-xs font-medium text-gray-700">
+          {t("Mada")}
+        </span>
+      </div>
+      <span className="text-[9px] font-extrabold tracking-wider text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200/50">
+        mada
+      </span>
+    </label>
 
-                  <label
-                    className={`flex items-center justify-between p-2.5 rounded-xl border cursor-pointer transition-all ${
-                      paymentMethod === "visa"
-                        ? "border-sky-200 bg-sky-50/20"
-                        : "border-slate-100 bg-[#F8FAFC]"
-                    }`}
-                  >
-                    <div className="flex items-center gap-2.5">
-                      <input
-                        type="radio"
-                        name="payment"
-                        checked={paymentMethod === "visa"}
-                        onChange={() => setPaymentMethod("visa")}
-                        className="accent-[#26BBFD] w-3.5 h-3.5"
-                      />
-                      <span className="text-xs font-medium text-gray-700">
-                        {t("Visa")}
-                      </span>
-                    </div>
-                    <span className="text-xs font-black italic tracking-widest text-blue-900">
-                      VISA
-                    </span>
-                  </label>
-                </div>
-              </div>
+    {/* Visa */}
+    <label
+      className={`flex items-center justify-between p-2.5 rounded-xl border cursor-pointer transition-all ${
+        paymentMethod === "visa"
+          ? "border-sky-200 bg-sky-50/20"
+          : "border-slate-100 bg-[#F8FAFC]"
+      }`}
+    >
+      <div className="flex items-center gap-2.5">
+        <div className="relative flex items-center justify-center">
+          <input
+            type="radio"
+            name="payment"
+            checked={paymentMethod === "visa"}
+            onChange={() => setPaymentMethod("visa")}
+            className="peer appearance-none w-4 h-4 rounded-full border-2 border-gray-300 checked:border-[#26BBFD] focus:outline-none cursor-pointer transition-all"
+          />
+          <span className="w-2 h-2 rounded-full bg-[#26BBFD] absolute opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity"></span>
+        </div>
+        <span className="text-xs font-medium text-gray-700">
+          {t("Visa")}
+        </span>
+      </div>
+      <span className="text-xs font-black italic tracking-widest text-blue-900">
+        VISA
+      </span>
+    </label>
+  </div>
+</div>
 
               {/* Buton a Reserve */}
               <button

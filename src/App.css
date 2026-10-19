@@ -1,8 +1,51 @@
 
 body {
   background-color: #FFFEF6;
+
+ 
+
+}
+/* حاوية الرسومات الجانبية الثابتة */
+.page-with-decorations {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
+/* الرسمة الموجودة على أقصى اليسار */
+.page-with-decorations::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100vh;
+  background-image: url('../assets/image_2.png'); /* تأكدِ من صحة المسار حسب مكان ملف الصورة لديك */
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: contain;
+  pointer-events: none; /* لتكون خلفية فقط ولا تمنع الضغط على الأزرار والروابط */
+  opacity: 0.25;        /* درجة الشفافية لتكون هادئة وغير مزعجة */
+  z-index: 0;
+}
+
+/* الرسمة الموجودة على أقصى اليمين (مقلوبة أفقياً لتشير للداخل) */
+.page-with-decorations::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100vh;
+  background-image: url('..//assets/image_2.png');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: contain;
+  transform: scaleX(-1); /* قلب الصورة أفقياً */
+  pointer-events: none;
+  opacity: 0.25;
+  z-index: 0;
+}
 /* .counter {
   font-size: 16px;
   padding: 5px 10px;

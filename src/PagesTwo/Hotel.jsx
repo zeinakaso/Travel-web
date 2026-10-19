@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { IconButton } from "@mui/material";
+import { Divider, IconButton } from "@mui/material";
 
 // أيقونات MUI
 import PlaceIcon from "@mui/icons-material/Place";
@@ -303,7 +303,7 @@ export default function Hotel() {
             </div>
 
             {activeModal === "calendar" && (
-              <div className="modal-container absolute top-full left-1/2 -translate-x-1/2 max-w-[400px]   mt-2 w-[calc(100vw-32px)] sm:w-[500px] bg-white border border-slate-200 rounded-2xl sm:rounded-3xl shadow-2xl p-3 sm:p-5 z-50 text-left rtl:text-right">
+              <div className="modal-container absolute top-full left-1/2 -translate-x-1/2 max-w-[400px]   mt-2 w-[calc(100vw-32px)] sm:w-[500px] bg-white border border-slate-200 rounded-[6px] sm:rounded-3xl shadow-2xl p-3 sm:p-5 z-50 text-left rtl:text-right">
                 <h3 className="text-xs sm:text-sm font-bold text-slate-800 mb-2">
                   {t("Check in-out")}
                 </h3>
@@ -647,21 +647,23 @@ export default function Hotel() {
           </div>
 
           {/* 4. زر البحث */}
-          <div className="md:col-span-1 relative flex">
+          <div className="md:col-span-1 relative flex ">
             <button
+               
               aria-label="search"
               onClick={() =>
                 setActiveModal(
                   activeModal === "searchPanel" ? null : "searchPanel",
                 )
               }
-              className="modal-trigger w-full h-full bg-blue-600 hover:bg-blue-700 text-white rounded-xl flex items-center justify-center gap-1.5 px-2 shadow-md transition-colors min-h-[48px] text-xs font-semibold cursor-pointer"
+              className="modal-trigger w-full h-full bg-blue-600 hover:bg-blue-700 text-white rounded-[6px] flex items-center justify-center gap-1.5 px-2 shadow-md transition-colors min-h-[48px] text-xs font-semibold cursor-pointer"
             >
               <div
                 style={{
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "center",
+                  
                 }}
               >
                 <div style={{ margin: "auto" }}>
@@ -741,10 +743,11 @@ export default function Hotel() {
             <h2 className="text-base font-bold text-slate-800">
               {t("Filter by")}
             </h2>
+            <Divider style={{ borderColor: "#26BBFD29", marginBottom: "30px" }} />
 
             {/* السعر لكل ليلة */}
             <div
-              className="border-b border-slate-100 pb-6 pr-2"
+              className=" pb-6 pr-2"
               dir={isRtl ? "rtl" : "ltr"}
             >
               {/* العنوان وبادج السعر المختار */}
@@ -753,12 +756,7 @@ export default function Hotel() {
                   {t("Price per night")}
                 </span>
 
-                <span
-                  dir="ltr"
-                  className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-sm font-bold text-blue-600"
-                >
-                  ${priceLimit}
-                </span>
+                
               </div>
 
               {/* سلايدر السعر المضبوط منطقياً وبصرياً */}
@@ -816,7 +814,7 @@ export default function Hotel() {
             </div>
 
             {/* تقييم النزلاء (تم تحويله إلى checkbox تماماً مثل باقي الخيارات) */}
-            <div className="border-b border-slate-100 pb-6">
+            <div className=" pb-6">
               <span className="text-xs font-bold text-slate-700 block mb-3">
                 {t("Guest rating")}
               </span>
@@ -900,7 +898,7 @@ export default function Hotel() {
             </div>
 
             {/* عدد النجوم */}
-            <div className="border-b border-slate-100 pb-6">
+            <div className="  pb-6">
               <span className="text-xs font-bold text-slate-700 block mb-3">
                 {t("Star rating")}
               </span>
